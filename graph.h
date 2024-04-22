@@ -13,7 +13,28 @@
 
 using namespace std;
 
-class Graph {
+class Vertex
+{
+  friend class Graph;
+  Vertex(char value);
+
+private:
+  char value;
+  map<char, Edge *> edges;
+};
+
+class Edge
+{
+  friend class Vertex;
+  friend class Graph;
+
+private:
+  int distance = 0;
+  Vertex *destination = nullptr;
+};
+
+class Graph
+{
 public:
   // constructor, empty graph
   explicit Graph(bool directionalEdges = true);
@@ -100,6 +121,10 @@ public:
   int mstKruskal(const string &startLabel,
                  void visit(const string &from, const string &to,
                             int weight)) const;
+
+private:
+  bool directionalEdges;
+  map<char, Vertex *> Vertices;
 };
 
 #endif // GRAPH_H
