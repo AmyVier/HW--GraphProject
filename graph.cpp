@@ -12,6 +12,19 @@
 
 using namespace std;
 
+// Vertex constructor
+Vertex::Vertex(string value)
+{
+  this->value = value;
+}
+
+// Edge constructor
+Edge::Edge(int distance, Vertex *destination)
+{
+  this->distance = distance;
+  this->destination = destination;
+}
+
 // constructor, empty graph
 // directionalEdges defaults to true
 Graph::Graph(bool directionalEdges) {}
@@ -29,7 +42,19 @@ int Graph::edgesSize() const { return 0; }
 int Graph::vertexDegree(const string &label) const { return 0; }
 
 // @return true if vertex added, false if it already is in the graph
-bool Graph::add(const string &label) { return true; }
+bool Graph::add(const string &label)
+{
+  if (vertices.count(label))
+  {
+    return false;
+  }
+  else
+  {
+    vertices.insert({label, new Vertex(label)});
+  }
+
+  return true;
+}
 
 /** return true if vertex already in graph */
 bool Graph::contains(const string &label) const { return true; }
@@ -41,10 +66,72 @@ string Graph::getEdgesAsString(const string &label) const { return ""; }
 // @return true if successfully connected
 bool Graph::connect(const string &from, const string &to, int weight)
 {
+  Vertex *fromVertex;
+  Vertex *toVertex;
+
+  // get vertices if found, return false if not found
+  if (vertices.count(from) && vertices.count(to))
+  {
+    fromVertex = vertices[from];
+    toVertex = vertices[to];
+  }
+  else
+  {
+    return false;
+  }
+
+  // if edge already exists, return false
+  if (fromVertex->edges.count(to))
+  {
+    return false;
+  }
+
+  // connect
+  fromVertex->edges.insert({to, new Edge(weight, toVertex)});
+
+  // if not directional, add one more connection of opposite direction
+  if (!(directionalEdges))
+  {
+    toVertex->edges.insert({from, new Edge(weight, fromVertex)});
+  }
+
   return true;
 }
 
-bool Graph::disconnect(const string &from, const string &to) { return true; }
+bool Graph::disconnect(const string &from, const string &to)
+{
+  Vertex *fromVertex;
+  Vertex *toVertex;
+
+  // get vertices if found, return false if not found
+  if (vertices.count(from) && vertices.count(to))
+  {
+    fromVertex = vertices[from];
+    toVertex = vertices[to];
+  }
+  else
+  {
+    return false;
+  }
+
+  // if connection does not exist, return false, if exists, disconnect
+  if (fromVertex->edges.count(to))
+  {
+    fromVertex->edges.erase(to);
+  }
+  else
+  {
+    return false;
+  }
+
+  // if not directional get rid of connection of opposite direction
+  if (!(directionalEdges))
+  {
+    toVertex->edges.erase(from);
+  }
+
+  return true;
+}
 
 // depth-first traversal starting from given startLabel
 void Graph::dfs(const string &startLabel, void visit(const string &label)) {}
