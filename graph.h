@@ -16,17 +16,18 @@ using namespace std;
 class Vertex
 {
   friend class Graph;
-  Vertex(char value);
+  Vertex(string value);
 
 private:
-  char value;
-  map<char, Edge *> edges;
+  string value;
+  map<string, Edge *> edges;
 };
 
 class Edge
 {
   friend class Vertex;
   friend class Graph;
+  Edge(int distance, Vertex *destination);
 
 private:
   int distance = 0;
@@ -124,7 +125,7 @@ public:
 
 private:
   bool directionalEdges;
-  map<char, Vertex *> Vertices;
+  map<string, Vertex *> vertices;
 };
 
 #endif // GRAPH_H
