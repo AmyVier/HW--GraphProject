@@ -18,13 +18,6 @@ Vertex::Vertex(string value)
   this->value = value;
 }
 
-// Edge constructor
-Edge::Edge(int distance, Vertex *destination)
-{
-  this->distance = distance;
-  this->destination = destination;
-}
-
 // constructor, empty graph
 // directionalEdges defaults to true
 Graph::Graph(bool directionalEdges)
@@ -45,9 +38,9 @@ int Graph::verticesSize() const
 int Graph::edgesSize() const
 {
   int numberOfEdges = 0;
-  for (const auto &[key, value] : vertices)
+  for (auto vertex : vertices)
   {
-    numberOfEdges += value->edges.size();
+    numberOfEdges += vertex.second->edges.size();
   }
 
   if (!directionalEdges)
@@ -112,14 +105,14 @@ string Graph::getEdgesAsString(const string &label) const
     return "";
   }
 
-  for (const auto &[key, value] : vertexFind->edges)
+  for (auto vertex : vertexFind->edges)
   {
-    edgeString = edgeString + value->destination->value + "(" + to_string(value->distance) + "),";
+    edgeString = edgeString + vertex.second->destination->value + "(" + to_string(vertex.second->distance) + "),";
   }
 
   if (edgeString.size() > 0)
   {
-    edgeString.substr(0, edgeString.size() - 2);
+    edgeString = edgeString.substr(0, edgeString.size() - 1);
   }
 
   return edgeString;
@@ -132,7 +125,7 @@ bool Graph::connect(const string &from, const string &to, int weight)
   Vertex *toVertex;
 
   // get vertices if found, return false if not found
-  if (vertices.count(from) && vertices.count(to))
+  if ((from != to) && (vertices.count(from) && vertices.count(to)))
   {
     fromVertex = vertices[from];
     toVertex = vertices[to];
@@ -149,12 +142,12 @@ bool Graph::connect(const string &from, const string &to, int weight)
   }
 
   // connect
-  fromVertex->edges.insert({to, new Edge(weight, toVertex)});
+  fromVertex->edges.insert({to, new Vertex::Edge(weight, toVertex)});
 
   // if not directional, add one more connection of opposite direction
   if (!(directionalEdges))
   {
-    toVertex->edges.insert({from, new Edge(weight, fromVertex)});
+    toVertex->edges.insert({from, new Vertex::Edge(weight, fromVertex)});
   }
 
   return true;
@@ -166,7 +159,7 @@ bool Graph::disconnect(const string &from, const string &to)
   Vertex *toVertex;
 
   // get vertices if found, return false if not found
-  if (vertices.count(from) && vertices.count(to))
+  if ((from != to) && (vertices.count(from) && vertices.count(to)))
   {
     fromVertex = vertices[from];
     toVertex = vertices[to];

@@ -18,20 +18,24 @@ class Vertex
   friend class Graph;
   Vertex(string value);
 
+  struct Edge
+  {
+    friend class Graph;
+
+    Edge(int distance, Vertex *destination)
+    {
+      this->distance = distance;
+      this->destination = destination;
+    }
+
+  private:
+    int distance = 0;
+    Vertex *destination = nullptr;
+  };
+
 private:
   string value;
   map<string, Edge *> edges;
-};
-
-class Edge
-{
-  friend class Vertex;
-  friend class Graph;
-  Edge(int distance, Vertex *destination);
-
-private:
-  int distance = 0;
-  Vertex *destination = nullptr;
 };
 
 class Graph
