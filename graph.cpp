@@ -18,28 +18,55 @@ Vertex::Vertex(string value)
   this->value = value;
 }
 
-// Edge constructor
-Edge::Edge(int distance, Vertex *destination)
-{
-  this->distance = distance;
-  this->destination = destination;
-}
-
 // constructor, empty graph
 // directionalEdges defaults to true
-Graph::Graph(bool directionalEdges) {}
+Graph::Graph(bool directionalEdges)
+{
+  this->directionalEdges = directionalEdges;
+}
 
 // destructor
 Graph::~Graph() {}
 
 // @return total number of vertices
-int Graph::verticesSize() const { return 0; }
+int Graph::verticesSize() const
+{
+  return vertices.size();
+}
 
 // @return total number of edges
-int Graph::edgesSize() const { return 0; }
+int Graph::edgesSize() const
+{
+  int numberOfEdges = 0;
+  for (auto vertex : vertices)
+  {
+    numberOfEdges += vertex.second->edges.size();
+  }
+
+  if (!directionalEdges)
+  {
+    numberOfEdges = numberOfEdges / 2;
+  }
+
+  return numberOfEdges;
+}
 
 // @return number of edges from given vertex, -1 if vertex not found
-int Graph::vertexDegree(const string &label) const { return 0; }
+int Graph::vertexDegree(const string &label) const
+{
+  Vertex *vertexFind;
+
+  if (vertices.count(label))
+  {
+    vertexFind = vertices.at(label);
+  }
+  else
+  {
+    return -1;
+  }
+
+  return vertexFind->edges.size();
+}
 
 // @return true if vertex added, false if it already is in the graph
 bool Graph::add(const string &label)
@@ -57,11 +84,39 @@ bool Graph::add(const string &label)
 }
 
 /** return true if vertex already in graph */
-bool Graph::contains(const string &label) const { return true; }
+bool Graph::contains(const string &label) const
+{
+  return vertices.count(label);
+}
 
 // @return string representing edges and weights, "" if vertex not found
 // A-3->B, A-5->C should return B(3),C(5)
-string Graph::getEdgesAsString(const string &label) const { return ""; }
+string Graph::getEdgesAsString(const string &label) const
+{
+  Vertex *vertexFind;
+  string edgeString = "";
+
+  if (vertices.count(label))
+  {
+    vertexFind = vertices.at(label);
+  }
+  else
+  {
+    return "";
+  }
+
+  for (auto vertex : vertexFind->edges)
+  {
+    edgeString = edgeString + vertex.second->destination->value + "(" + to_string(vertex.second->distance) + "),";
+  }
+
+  if (edgeString.size() > 0)
+  {
+    edgeString = edgeString.substr(0, edgeString.size() - 1);
+  }
+
+  return edgeString;
+}
 
 // @return true if successfully connected
 bool Graph::connect(const string &from, const string &to, int weight)
@@ -70,7 +125,7 @@ bool Graph::connect(const string &from, const string &to, int weight)
   Vertex *toVertex;
 
   // get vertices if found, return false if not found
-  if (vertices.count(from) && vertices.count(to))
+  if ((from != to) && (vertices.count(from) && vertices.count(to)))
   {
     fromVertex = vertices[from];
     toVertex = vertices[to];
@@ -87,12 +142,12 @@ bool Graph::connect(const string &from, const string &to, int weight)
   }
 
   // connect
-  fromVertex->edges.insert({to, new Edge(weight, toVertex)});
+  fromVertex->edges.insert({to, new Vertex::Edge(weight, toVertex)});
 
   // if not directional, add one more connection of opposite direction
   if (!(directionalEdges))
   {
-    toVertex->edges.insert({from, new Edge(weight, fromVertex)});
+    toVertex->edges.insert({from, new Vertex::Edge(weight, fromVertex)});
   }
 
   return true;
@@ -104,7 +159,7 @@ bool Graph::disconnect(const string &from, const string &to)
   Vertex *toVertex;
 
   // get vertices if found, return false if not found
-  if (vertices.count(from) && vertices.count(to))
+  if ((from != to) && (vertices.count(from) && vertices.count(to)))
   {
     fromVertex = vertices[from];
     toVertex = vertices[to];
