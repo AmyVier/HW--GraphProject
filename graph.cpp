@@ -26,7 +26,17 @@ Graph::Graph(bool directionalEdges)
 }
 
 // destructor
-Graph::~Graph() {}
+Graph::~Graph()
+{
+  for (auto vertex : vertices)
+  {
+    for (auto edge : vertex.second->edges)
+    {
+      delete edge.second;
+    }
+    delete vertex.second;
+  }
+}
 
 // @return total number of vertices
 int Graph::verticesSize() const
@@ -172,6 +182,7 @@ bool Graph::disconnect(const string &from, const string &to)
   // if connection does not exist, return false, if exists, disconnect
   if (fromVertex->edges.count(to))
   {
+    delete fromVertex->edges.at(to);
     fromVertex->edges.erase(to);
   }
   else
