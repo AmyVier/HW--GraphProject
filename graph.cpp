@@ -9,6 +9,7 @@
 #include <set>
 #include <utility>
 #include <vector>
+#include <stack>
 
 using namespace std;
 
@@ -134,16 +135,23 @@ bool Graph::connect(const string &from, const string &to, int weight)
   Vertex *fromVertex;
   Vertex *toVertex;
 
-  // get vertices if found, return false if not found
-  if ((from != to) && (vertices.count(from) && vertices.count(to)))
-  {
-    fromVertex = vertices[from];
-    toVertex = vertices[to];
-  }
-  else
+  if (from == to)
   {
     return false;
   }
+
+  if (!(vertices.count(from)))
+  {
+    add(from);
+  }
+
+  if (!(vertices.count(to)))
+  {
+    add(to);
+  }
+
+  fromVertex = vertices[from];
+  toVertex = vertices[to];
 
   // if edge already exists, return false
   if (fromVertex->edges.count(to))
@@ -193,6 +201,7 @@ bool Graph::disconnect(const string &from, const string &to)
   // if not directional get rid of connection of opposite direction
   if (!(directionalEdges))
   {
+    delete toVertex->edges.at(from);
     toVertex->edges.erase(from);
   }
 
@@ -200,11 +209,76 @@ bool Graph::disconnect(const string &from, const string &to)
 }
 
 // depth-first traversal starting from given startLabel
-void Graph::dfs(const string &startLabel, void visit(const string &label)) {}
+void Graph::dfs(const string &startLabel, void visit(const string &label))
+{
+  set<string> visited;
+  stack<Vertex *> toVisit;
+  Vertex *currentVertex;
+
+  if (vertices.count(startLabel))
+  {
+    toVisit.push(vertices[startLabel]);
+    visited.insert(startLabel);
+  }
+  else
+  {
+    return;
+  }
+
+  while (!(toVisit.empty()))
+  {
+    currentVertex = toVisit.top();
+    toVisit.pop();
+    visit(currentVertex->value);
+    map<string, Vertex::Edge *>::reverse_iterator it;
+
+    for (it = currentVertex->edges.rbegin(); it != currentVertex->edges.rend(); it++)
+    {
+      if (!(visited.count(it->second->destination->value)))
+      {
+        visited.insert(it->second->destination->value);
+        toVisit.push(it->second->destination);
+      }
+    }
+  }
+}
 
 // breadth-first traversal starting from startLabel
-void Graph::bfs(const string &startLabel, void visit(const string &label)) {}
+void Graph::bfs(const string &startLabel, void visit(const string &label))
+{
+  set<string> visited;
+  queue<Vertex *> toVisit;
+  Vertex *currentVertex;
 
+  if (vertices.count(startLabel))
+  {
+    toVisit.push(vertices[startLabel]);
+    visited.insert(startLabel);
+  }
+  else
+  {
+    return;
+  }
+
+  while (!(toVisit.empty()))
+  {
+    currentVertex = toVisit.front();
+    toVisit.pop();
+    visit(currentVertex->value);
+
+    for (auto edge : currentVertex->edges)
+    {
+      if (!(visited.count(edge.second->destination->value)))
+      {
+        visited.insert(edge.second->destination->value);
+        toVisit.push(edge.second->destination);
+      }
+    }
+  }
+}
+
+// store the weights in a map
+// store the previous label in a map
 // store the weights in a map
 // store the previous label in a map
 pair<map<string, int>, map<string, string>>
@@ -212,6 +286,53 @@ Graph::dijkstra(const string &startLabel) const
 {
   map<string, int> weights;
   map<string, string> previous;
+  priority_queue<pair<int, pair<string, Vertex *>>, vector<pair<int, pair<string, Vertex *>>>, greater<pair<int, pair<string, Vertex *>>>> toVisit;
+  Vertex *currentVertex;
+  int path = 0;
+  string previousLabel = startLabel;
+
+  if (vertices.count(startLabel))
+  {
+    toVisit.push(make_pair(0, make_pair(startLabel, vertices.at(startLabel))));
+  }
+  else
+  {
+    return make_pair(weights, previous);
+  }
+
+  while (!(toVisit.empty()))
+  {
+    currentVertex = toVisit.top().second.second;
+    path = toVisit.top().first;
+    previousLabel = toVisit.top().second.first;
+    toVisit.pop();
+
+    if (!(weights.count(currentVertex->value)) || weights.at(currentVertex->value) > path)
+    {
+      if (!(weights.count(currentVertex->value)))
+      {
+        weights.insert({currentVertex->value, path});
+        previous.insert({currentVertex->value, previousLabel});
+      }
+      else if (weights.at(currentVertex->value) > path)
+      {
+        previous[currentVertex->value] = previousLabel;
+        weights[currentVertex->value] = path;
+      }
+      for (auto edge : currentVertex->edges)
+      {
+        if (!(weights.count(edge.second->destination->value)) ||
+            (path + edge.second->distance < weights.at(edge.second->destination->value)))
+        {
+          toVisit.push(make_pair(path + edge.second->distance, make_pair(currentVertex->value, edge.second->destination)));
+        }
+      }
+    }
+  }
+
+  weights.erase(startLabel);
+  previous.erase(startLabel);
+
   // TODO(student) Your code here
   return make_pair(weights, previous);
 }
@@ -221,6 +342,7 @@ int Graph::mstPrim(const string &startLabel,
                    void visit(const string &from, const string &to,
                               int weight)) const
 {
+
   return -1;
 }
 
