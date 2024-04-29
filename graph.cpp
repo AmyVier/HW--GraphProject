@@ -1,103 +1,278 @@
-// Amy Vier and Elaine Hsu
-#include "graph.h"
-#include <algorithm>
-#include <fstream>
-#include <functional>
 #include <iostream>
-#include <map>
+#include <fstream>
+#include <unordered_map>
+#include <unordered_set>
 #include <queue>
-#include <set>
-#include <utility>
 #include <vector>
+#include <limits.h>
 
 using namespace std;
 
-// constructor, empty graph
-// directionalEdges defaults to true
-Graph::Graph(bool directionalEdges) {}
+class Graph {
+private:
+    unordered_map<string, unordered_map<string, int>> adjacencyList; // To store vertices and their edges with weights
+    bool directionalEdges;
 
-// destructor
-Graph::~Graph() {}
+public:
+    // Constructor
+    explicit Graph(bool directionalEdges = true) : directionalEdges(directionalEdges) {}
 
-// @return total number of vertices
-int Graph::verticesSize() const { return 0; }
+    // Destructor
+    ~Graph() {
+        adjacencyList.clear();
+    }
 
-// @return total number of edges
-int Graph::edgesSize() const { return 0; }
+    // Function to check if a vertex exists in the graph
+    bool contains(const string &label) const {
+        return adjacencyList.find(label) != adjacencyList.end();
+    }
 
-// @return number of edges from given vertex, -1 if vertex not found
-int Graph::vertexDegree(const string &label) const { return 0; }
+    // Function to add a vertex to the graph
+    bool add(const string &label) {
+        if (!contains(label)) {
+            adjacencyList[label] = unordered_map<string, int>();
+            return true;
+        }
+        return false;
+    }
 
-// @return true if vertex added, false if it already is in the graph
-bool Graph::add(const string &label) { return true; }
+    // Function to connect two vertices with an edge
+    bool connect(const string &from, const string &to, int weight = 0) {
+        if (contains(from) && contains(to) && from != to) {
+            adjacencyList[from][to] = weight;
+            if (!directionalEdges) {
+                adjacencyList[to][from] = weight;
+            }
+            return true;
+        }
+        return false;
+    }
 
-/** return true if vertex already in graph */
-bool Graph::contains(const string &label) const { return true; }
+    // Function to disconnect two vertices
+    bool disconnect(const string &from, const string &to) {
+        if (contains(from) && contains(to) && adjacencyList[from].find(to) != adjacencyList[from].end()) {
+            adjacencyList[from].erase(to);
+            if (!directionalEdges) {
+                adjacencyList[to].erase(from);
+            }
+            return true;
+        }
+        return false;
+    }
 
-// @return string representing edges and weights, "" if vertex not found
-// A-3->B, A-5->C should return B(3),C(5)
-string Graph::getEdgesAsString(const string &label) const { return ""; }
+    // Function to get the number of vertices in the graph
+    int verticesSize() const {
+        return adjacencyList.size();
+    }
 
-// @return true if successfully connected
-bool Graph::connect(const string &from, const string &to, int weight)
-{
-  return true;
-}
+    // Function to get the number of edges in the graph
+    int edgesSize() const {
+        int count = 0;
+        for (const auto &entry : adjacencyList) {
+            count += entry.second.size();
+        }
+        return count;
+    }
 
-bool Graph::disconnect(const string &from, const string &to) { return true; }
+    // Function to get the degree of a vertex
+    int vertexDegree(const string &label) const {
+        if (contains(label)) {
+            return adjacencyList.at(label).size();
+        }
+        return -1;
+    }
 
-// depth-first traversal starting from given startLabel
-void Graph::dfs(const string &startLabel, void visit(const string &label)) {}
+    // Function to get edges as a string for a given vertex
+    string getEdgesAsString(const string &label) const {
+        if (contains(label)) {
+            string result;
+            for (const auto &edge : adjacencyList.at(label)) {
+                result += edge.first + "(" + to_string(edge.second) + "), ";
+            }
+            result.pop_back(); // Remove trailing comma
+            result.pop_back(); // Remove space
+            return result;
+        }
+        return "";
+    }
 
-// breadth-first traversal starting from startLabel
-void Graph::bfs(const string &startLabel, void visit(const string &label)) {}
+    // Function to read edges from a file
+    bool readFile(const string &filename) {
+        ifstream file(filename);
+        if (!file.is_open()) {
+            return false;
+        }
 
-// store the weights in a map
-// store the previous label in a map
-pair<map<string, int>, map<string, string>>
-Graph::dijkstra(const string &startLabel) const
-{
-  map<string, int> weights;
-  map<string, string> previous;
-  // TODO(student) Your code here
-  return make_pair(weights, previous);
-}
+        int numEdges;
+        file >> numEdges;
 
-// minimum spanning tree using Prim's algorithm
-int Graph::mstPrim(const string &startLabel,
-                   void visit(const string &from, const string &to,
-                              int weight)) const
-{
-  return -1;
-}
+        for (int i = 0; i < numEdges; ++i) {
+            string from, to;
+            int weight;
+            file >> from >> to >> weight;
 
-// minimum spanning tree using Prim's algorithm
-int Graph::mstKruskal(const string &startLabel,
-                      void visit(const string &from, const string &to,
-                                 int weight)) const
-{
-  return -1;
-}
+            add(from);
+            add(to);
+            connect(from, to, weight);
+        }
 
-// read a text file and create the graph
-bool Graph::readFile(const string &filename)
-{
-  ifstream myfile(filename);
-  if (!myfile.is_open())
-  {
-    cerr << "Failed to open " << filename << endl;
-    return false;
-  }
-  int edges = 0;
-  int weight = 0;
-  string fromVertex;
-  string toVertex;
-  myfile >> edges;
-  for (int i = 0; i < edges; ++i)
-  {
-    myfile >> fromVertex >> toVertex >> weight;
-    connect(fromVertex, toVertex, weight);
-  }
-  myfile.close();
-  return true;
+        file.close();
+        return true;
+    }
+
+    // Depth-first traversal
+    void dfs(const string &startLabel, void visit(const string &label)) {
+        unordered_set<string> visited;
+        dfsHelper(startLabel, visited, visit);
+    }
+
+private:
+    // Helper function for depth-first traversal
+    void dfsHelper(const string &label, unordered_set<string> &visited, void visit(const string &label)) {
+        if (visited.find(label) != visited.end()) {
+            return;
+        }
+
+        visited.insert(label);
+        visit(label);
+
+        for (const auto &neighbor : adjacencyList[label]) {
+            dfsHelper(neighbor.first, visited, visit);
+        }
+    }
+
+public:
+    // Breadth-first traversal
+    void bfs(const string &startLabel, void visit(const string &label)) {
+        unordered_set<string> visited;
+        queue<string> bfsQueue;
+
+        bfsQueue.push(startLabel);
+        visited.insert(startLabel);
+
+        while (!bfsQueue.empty()) {
+            string currentLabel = bfsQueue.front();
+            bfsQueue.pop();
+            visit(currentLabel);
+
+            for (const auto &neighbor : adjacencyList[currentLabel]) {
+                if (visited.find(neighbor.first) == visited.end()) {
+                    bfsQueue.push(neighbor.first);
+                    visited.insert(neighbor.first);
+                }
+            }
+        }
+    }
+
+    // Dijkstra's algorithm
+    pair<unordered_map<string, int>, unordered_map<string, string>> dijkstra(const string &startLabel) const {
+        unordered_map<string, int> weights;
+        unordered_map<string, string> previous;
+        priority_queue<pair<int, string>, vector<pair<int, string>>, greater<pair<int, string>>> pq;
+
+        for (const auto &vertex : adjacencyList) {
+            weights[vertex.first] = INT_MAX;
+            previous[vertex.first] = "";
+        }
+
+        weights[startLabel] = 0;
+        pq.push({0, startLabel});
+
+        while (!pq.empty()) {
+            string currentLabel = pq.top().second;
+            pq.pop();
+
+            for (const auto &neighbor : adjacencyList.at(currentLabel)) {
+                string neighborLabel = neighbor.first;
+                int edgeWeight = neighbor.second;
+                int totalWeight = weights[currentLabel] + edgeWeight;
+
+                if (totalWeight < weights[neighborLabel]) {
+                    weights[neighborLabel] = totalWeight;
+                    previous[neighborLabel] = currentLabel;
+                    pq.push({totalWeight, neighborLabel});
+                }
+            }
+        }
+
+        return {weights, previous};
+    }
+
+    // Prim's algorithm for Minimum Spanning Tree
+    int mstPrim(const string &startLabel, void visit(const string &from, const string &to, int weight)) const {
+        if (!contains(startLabel)) {
+            return -1; // Start vertex not found
+        }
+
+        int totalWeight = 0;
+        unordered_set<string> visited;
+        priority_queue<pair<int, pair<string, string>>, vector<pair<int, pair<string, string>>>, greater<>> pq;
+
+        pq.push({0, {startLabel, startLabel}});
+
+        while (!pq.empty()) {
+            string from = pq.top().second.first;
+            string to = pq.top().second.second;
+            int weight = pq.top().first;
+            pq.pop();
+
+            if (visited.find(to) != visited.end()) {
+                continue;
+            }
+
+            visited.insert(to);
+            totalWeight += weight;
+
+            if (from != to) {
+                visit(from, to, weight);
+            }
+
+            for (const auto &neighbor : adjacencyList.at(to)) {
+                pq.push({neighbor.second, {to, neighbor.first}});
+            }
+        }
+
+        return totalWeight;
+    }
+};
+
+// Usage example:
+int main() {
+    Graph graph;
+    graph.add("A");
+    graph.add("B");
+    graph.add("C");
+    graph.connect("A", "B", 3);
+    graph.connect("A", "C", 5);
+
+    cout << "Vertices: " << graph.verticesSize() << endl;
+    cout << "Edges: " << graph.edgesSize() << endl;
+
+    cout << "Vertex Degree A: " << graph.vertexDegree("A") << endl;
+    cout << "Vertex Degree B: " << graph.vertexDegree("B") << endl;
+
+    cout << "Edges from A: " << graph.getEdgesAsString("A") << endl;
+
+    graph.dfs("A", [](const string &label) {
+        cout << label << " ";
+    });
+    cout << endl;
+
+    graph.bfs("A", [](const string &label) {
+        cout << label << " ";
+    });
+    cout << endl;
+
+    auto dijkstraResult = graph.dijkstra("A");
+    for (const auto &entry : dijkstraResult.first) {
+        cout << "Shortest path to " << entry.first << ": " << entry.second << endl;
+    }
+
+    int mstWeight = graph.mstPrim("A", [](const string &from, const string &to, int weight) {
+        cout << "Edge: " << from << " - " << to << " Weight: " << weight << endl;
+    });
+
+    cout << "MST Weight: " << mstWeight << endl;
+
+    return 0;
 }
