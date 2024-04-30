@@ -13,5 +13,5 @@ This project aims to create a graph by reading file containing vertices and edge
 
 ## Contributors
 
-Amy Vier
-Elaine Hsu
+- Amy Vier
+- Elaine Hsu
