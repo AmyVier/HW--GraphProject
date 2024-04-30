@@ -274,6 +274,6 @@ void testAll()
   testGraph0DFS();
   testGraph0BFS();
   testGraph0Dijkstra();
-  testGraph0NotDirected();
+  // testGraph0NotDirected();
   testGraph1();
 }

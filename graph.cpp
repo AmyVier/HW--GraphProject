@@ -28,9 +28,9 @@ Graph::Graph(bool directionalEdges)
 // destructor
 Graph::~Graph()
 {
-  for (auto vertex : vertices)
+  for (const auto &vertex : vertices)
   {
-    for (auto edge : vertex.second->edges)
+    for (const auto &edge : vertex.second->edges)
     {
       delete edge.second;
     }
@@ -48,7 +48,7 @@ int Graph::verticesSize() const
 int Graph::edgesSize() const
 {
   int numberOfEdges = 0;
-  for (auto vertex : vertices)
+  for (const auto &vertex : vertices)
   {
     numberOfEdges += vertex.second->edges.size();
   }
@@ -64,7 +64,7 @@ int Graph::edgesSize() const
 // @return number of edges from given vertex, -1 if vertex not found
 int Graph::vertexDegree(const string &label) const
 {
-  Vertex *vertexFind; // vertex found
+  Vertex *vertexFind = nullptr; // vertex found
 
   if (vertices.count(label))
   {
@@ -103,8 +103,8 @@ bool Graph::contains(const string &label) const
 // A-3->B, A-5->C should return B(3),C(5)
 string Graph::getEdgesAsString(const string &label) const
 {
-  Vertex *vertexFind;     // vertex found
-  string edgeString = ""; // string representing edges and weights
+  Vertex *vertexFind = nullptr; // vertex found
+  string edgeString = "";       // string representing edges and weights
 
   // if vertex does not exist
   if (vertices.count(label))
@@ -117,14 +117,14 @@ string Graph::getEdgesAsString(const string &label) const
   }
 
   // iterate through edges
-  for (auto vertex : vertexFind->edges)
+  for (const auto &vertex : vertexFind->edges)
   {
     edgeString = edgeString + vertex.second->destination->value +
                  "(" + to_string(vertex.second->distance) + "),";
   }
 
   // get rid of last comma
-  if (edgeString.size() > 0)
+  if (!(edgeString.empty()))
   {
     edgeString = edgeString.substr(0, edgeString.size() - 1);
   }
@@ -135,8 +135,8 @@ string Graph::getEdgesAsString(const string &label) const
 // @return true if successfully connected
 bool Graph::connect(const string &from, const string &to, int weight)
 {
-  Vertex *fromVertex;
-  Vertex *toVertex;
+  Vertex *fromVertex = nullptr;
+  Vertex *toVertex = nullptr;
 
   // vertex cannot connect to itself
   if (from == to)
@@ -178,8 +178,8 @@ bool Graph::connect(const string &from, const string &to, int weight)
 
 bool Graph::disconnect(const string &from, const string &to)
 {
-  Vertex *fromVertex;
-  Vertex *toVertex;
+  Vertex *fromVertex = nullptr;
+  Vertex *toVertex = nullptr;
 
   // get vertices if found, return false if not found
   if ((from != to) && (vertices.count(from) && vertices.count(to)))
@@ -218,7 +218,7 @@ void Graph::dfs(const string &startLabel, void visit(const string &label))
 {
   set<string> visited;     // keep track of visited vertices
   stack<Vertex *> toVisit; // keep tack of vertices to visit
-  Vertex *currentVertex;
+  Vertex *currentVertex = nullptr;
 
   // check if vertex exists
   if (vertices.count(startLabel))
@@ -260,7 +260,7 @@ void Graph::bfs(const string &startLabel, void visit(const string &label))
 {
   set<string> visited;     // keep track of visited vertices
   queue<Vertex *> toVisit; // keep track of vertices to visit
-  Vertex *currentVertex;
+  Vertex *currentVertex = nullptr;
 
   // check if vertex exists
   if (vertices.count(startLabel))
@@ -281,7 +281,7 @@ void Graph::bfs(const string &startLabel, void visit(const string &label))
     visit(currentVertex->value);
 
     // iterate over edges
-    for (auto edge : currentVertex->edges)
+    for (const auto &edge : currentVertex->edges)
     {
       // add to queue if not visited
       if (!(visited.count(edge.second->destination->value)))
@@ -312,7 +312,7 @@ Graph::dijkstra(const string &startLabel) const
                  greater<pair<int, pair<string, Vertex *>>>>
       toVisit;
 
-  Vertex *currentVertex;
+  Vertex *currentVertex = nullptr;
   int path = 0;                      // path cost
   string previousLabel = startLabel; // previous vertex
 
@@ -351,7 +351,7 @@ Graph::dijkstra(const string &startLabel) const
       }
 
       // iterate over edges
-      for (auto edge : currentVertex->edges)
+      for (const auto &edge : currentVertex->edges)
       {
         // explore edges if the edges or unexplored of the cost path is
         // less than the cost path stored
@@ -420,9 +420,9 @@ int Graph::mstKruskal(const string &startLabel,
   }
 
   // store edges by least cost
-  for (auto vertex : vertices)
+  for (const auto &vertex : vertices)
   {
-    for (auto edge : vertex.second->edges)
+    for (const auto &edge : vertex.second->edges)
     {
       edges.push(make_pair(edge.second->distance,
                            make_pair(vertex.first, edge.first)));
