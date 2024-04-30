@@ -239,7 +239,8 @@ void Graph::dfs(const string &startLabel, void visit(const string &label))
     toVisit.pop();
     visit(currentVertex->value);
 
-    // iterate over map of edges in reverse order to visit edges in alphabetical order
+    // iterate over map of edges in reverse order to visit edges in
+    // alphabetical order
     map<string, Vertex::Edge *>::reverse_iterator it;
 
     // iterate over edges
@@ -303,8 +304,9 @@ Graph::dijkstra(const string &startLabel) const
   map<string, int> weights;     // store weights
   map<string, string> previous; // store previous vertices/path
 
-  // priority queue of the path cost from the start vertex to the vertex stored, the
-  // previous vertex of the vertex stored, and vertex stored. Sorted by the least cost.
+  // priority queue of the path cost from the start vertex to
+  // the vertex stored, the previous vertex of the vertex stored,
+  // and vertex stored. Sorted by the least cost.
   // priority_queue < {path cost, {previous vertex, vertex}} >
   priority_queue<pair<int, pair<string, Vertex *>>,
                  vector<pair<int, pair<string, Vertex *>>>,
@@ -332,9 +334,10 @@ Graph::dijkstra(const string &startLabel) const
     previousLabel = toVisit.top().second.first;  // get previous vertex of vertex
     toVisit.pop();
 
-    // explore new vertex if the vertex is unexplored or the new path of the vertex is
-    // less than the old stored path of the vertex
-    if (!(weights.count(currentVertex->value)) || weights.at(currentVertex->value) > path)
+    // explore new vertex if the vertex is unexplored or the new path of the
+    // vertex is less than the old stored path of the vertex
+    if (!(weights.count(currentVertex->value)) ||
+        weights.at(currentVertex->value) > path)
     {
       // store weight and previous node into maps
       if (!(weights.count(currentVertex->value)))
@@ -351,11 +354,14 @@ Graph::dijkstra(const string &startLabel) const
       // iterate over edges
       for (auto edge : currentVertex->edges)
       {
-        // explore edges if the edges or unexplored of the cost path is less than the cost path stored
+        // explore edges if the edges or unexplored of the cost path is
+        // less than the cost path stored
         if (!(weights.count(edge.second->destination->value)) ||
-            (path + edge.second->distance < weights.at(edge.second->destination->value)))
+            (path + edge.second->distance <
+             weights.at(edge.second->destination->value)))
         {
-          toVisit.push(make_pair(path + edge.second->distance, make_pair(currentVertex->value, edge.second->destination)));
+          toVisit.push(make_pair(path + edge.second->distance,
+                                 make_pair(currentVertex->value, edge.second->destination)));
         }
       }
     }
@@ -395,11 +401,18 @@ int Graph::mstKruskal(const string &startLabel,
   // vector < {cost of all edges in cluster, {indexes of all clusters the
   // cluster is connected to, all vertices in the cluster}}
   vector<pair<int, pair<set<int>, set<string>>>> minimumSpanningTree;
-  int startVertexConnection = -1;          // cluster index the start vertex is connected to
-  int total = 0;                           // total edge cost
-  queue<int> minimumSpanningTreeTraversal; // store clusters that contain vertices connected
-                                           // to the start vertex
-  set<int> visited;                        // indexes of visited clusters
+
+  // cluster index the start vertex is connected to
+  int startVertexConnection = -1;
+
+  // total edge cost
+  int total = 0;
+
+  // store clusters that contain vertices connected to start vertex
+  queue<int> minimumSpanningTreeTraversal;
+
+  // indexes of visited clusters
+  set<int> visited;
 
   // check if vertex exists and if graph is not directional
   if (!(vertices.count(startLabel)) || directionalEdges)
@@ -412,7 +425,8 @@ int Graph::mstKruskal(const string &startLabel,
   {
     for (auto edge : vertex.second->edges)
     {
-      edges.push(make_pair(edge.second->distance, make_pair(vertex.first, edge.first)));
+      edges.push(make_pair(edge.second->distance,
+                           make_pair(vertex.first, edge.first)));
     }
   }
 
