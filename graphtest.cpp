@@ -1,8 +1,8 @@
 /**
  * Testing BST - Binary Search Tree functions
  *
- * @author Yusuf Pisan
- * @date 19 Oct 2019
+ * @author Yusuf Pisan edited by Amy Vier
+ * @date 29 Apr 2024
  */
 
 #include "graph.h"
