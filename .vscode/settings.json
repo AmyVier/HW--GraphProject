@@ -23,6 +23,8 @@
     "set": "cpp",
     "queue": "cpp",
     "utility": "cpp",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "functional": "cpp",
+    "unordered_map": "cpp"
   }
 }

@@ -351,7 +351,107 @@ int Graph::mstKruskal(const string &startLabel,
                       void visit(const string &from, const string &to,
                                  int weight)) const
 {
-  return -1;
+  priority_queue<pair<int, pair<string, string>>, vector<pair<int, pair<string, string>>>, greater<pair<int, pair<string, string>>>> edges;
+  vector<pair<int, pair<set<int>, set<string>>>> minimumSpanningTree;
+  int start = -1;
+  int total = 0;
+  queue<int> minimumSpanningTreeTraversal;
+  set<int> visited;
+
+  if (!(vertices.count(startLabel)) || directionalEdges)
+  {
+    return -1;
+  }
+
+  for (auto vertex : vertices)
+  {
+    for (auto edge : vertex.second->edges)
+    {
+      edges.push(make_pair(edge.second->distance, make_pair(vertex.first, edge.first)));
+    }
+  }
+
+  while (!(edges.empty()))
+  {
+    int fromIndex = -1;
+    int toIndex = -1;
+
+    int distance = edges.top().first;
+    string fromVertex = edges.top().second.first;
+    string toVertex = edges.top().second.second;
+    edges.pop();
+
+    for (int i = 0; i < minimumSpanningTree.size(); i++)
+    {
+      if (minimumSpanningTree[i].second.second.count(fromVertex))
+      {
+        fromIndex = i;
+      }
+
+      if (minimumSpanningTree[i].second.second.count(toVertex))
+      {
+        toIndex = i;
+      }
+    }
+
+    if (fromIndex == -1 && toIndex == -1)
+    {
+      set<string> connectedVertices;
+      connectedVertices.insert(fromVertex);
+      connectedVertices.insert(toVertex);
+      set<int> otherConnectedVertices;
+      minimumSpanningTree.push_back(make_pair(distance, make_pair(otherConnectedVertices, connectedVertices)));
+      visit(fromVertex, toVertex, distance);
+    }
+    else if (fromIndex == -1 && toIndex != -1)
+    {
+      minimumSpanningTree[toIndex].second.second.insert(fromVertex);
+      minimumSpanningTree[toIndex].first = minimumSpanningTree[toIndex].first + distance;
+      visit(fromVertex, toVertex, distance);
+    }
+    else if (fromIndex != -1 && toIndex == -1)
+    {
+      minimumSpanningTree[fromIndex].second.second.insert(toVertex);
+      minimumSpanningTree[fromIndex].first = minimumSpanningTree[fromIndex].first + distance;
+      visit(fromVertex, toVertex, distance);
+    }
+    else if (fromIndex != -1 && toIndex != -1 && fromIndex != toIndex && !(minimumSpanningTree[fromIndex].second.first.count(toIndex)))
+    {
+      minimumSpanningTree[fromIndex].second.first.insert(toIndex);
+      minimumSpanningTree[toIndex].second.first.insert(fromIndex);
+      minimumSpanningTree[fromIndex].first = minimumSpanningTree[fromIndex].first + distance;
+      visit(fromVertex, toVertex, distance);
+    }
+  }
+
+  for (int i = 0; i < minimumSpanningTree.size(); i++)
+  {
+    if (minimumSpanningTree[i].second.second.count(startLabel))
+    {
+      start = i;
+    }
+  }
+
+  minimumSpanningTreeTraversal.push(start);
+  visited.insert(start);
+
+  while (!(minimumSpanningTreeTraversal.empty()))
+  {
+    start = minimumSpanningTreeTraversal.front();
+    minimumSpanningTreeTraversal.pop();
+    total = total + minimumSpanningTree[start].first;
+
+    for (int connectedVertices : minimumSpanningTree[start].second.first)
+    {
+      if (!(visited.count(connectedVertices)))
+      {
+        visited.insert(connectedVertices);
+        minimumSpanningTreeTraversal.push(connectedVertices);
+      }
+    }
+  }
+
+  return total;
 }
 
 // read a text file and create the graph
