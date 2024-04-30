@@ -1,4 +1,4 @@
-Mon Apr 29 21:58:22 PDT 2024
+Mon Apr 29 22:01:45 PDT 2024
 Linux csslab7 4.18.0-513.18.1.el8_9.x86_64 #1 SMP Wed Feb 21 21:34:36 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
 uid=1158009(amyv16) gid=2121158009(amyv16) groups=2121158009(amyv16),605559(lab-access)
 =====================================================
@@ -3105,26 +3105,26 @@ Running clang-format on ./main.cpp
 =====================================================
 6. No memory leaks using valgrind, look for "definitely lost" 
 =====================================================
-==1451020== Memcheck, a memory error detector
-==1451020== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==1451020== Using Valgrind-3.21.0 and LibVEX; rerun with -h for copyright info
-==1451020== Command: ./a.out
-==1451020== Parent PID: 1450897
-==1451020== 
-==1451020== 
-==1451020== HEAP SUMMARY:
-==1451020==     in use at exit: 0 bytes in 0 blocks
-==1451020==   total heap usage: 339 allocs, 339 frees, 153,563 bytes allocated
-==1451020== 
-==1451020== All heap blocks were freed -- no leaks are possible
-==1451020== 
-==1451020== For lists of detected and suppressed errors, rerun with: -s
-==1451020== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1451378== Memcheck, a memory error detector
+==1451378== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==1451378== Using Valgrind-3.21.0 and LibVEX; rerun with -h for copyright info
+==1451378== Command: ./a.out
+==1451378== Parent PID: 1451268
+==1451378== 
+==1451378== 
+==1451378== HEAP SUMMARY:
+==1451378==     in use at exit: 0 bytes in 0 blocks
+==1451378==   total heap usage: 339 allocs, 339 frees, 153,563 bytes allocated
+==1451378== 
+==1451378== All heap blocks were freed -- no leaks are possible
+==1451378== 
+==1451378== For lists of detected and suppressed errors, rerun with: -s
+==1451378== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 =====================================================
 7. Tests have full code coverage
 =====================================================
 WARNING: check-code-coverage.sh script is missing
-Mon Apr 29 21:59:03 PDT 2024
+Mon Apr 29 22:02:26 PDT 2024
 =====================================================
 To create an output.txt file with all the output from this script
 Run the below command
