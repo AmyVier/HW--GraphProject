@@ -12,12 +12,6 @@
 
 using namespace std;
 
-// Vertex constructor
-Vertex::Vertex(string value)
-{
-  this->value = value;
-}
-
 // constructor, empty graph
 // directionalEdges defaults to true
 Graph::Graph(bool directionalEdges)

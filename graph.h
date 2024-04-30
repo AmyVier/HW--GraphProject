@@ -1,10 +1,19 @@
 /**
  *  Graph class - graph of vertices and edges, allowing user to perform
- *  searching algorithms
+ *  traversal algorithms
  *
  * @author Amy Vier and Elaine Hsu
  * @date 29 Apr 2024
  *
+ * ---------------------
+ * Vertices can be added, connected, disconnected, and read from a file to create a graph
+ * The number of edges vertices can be counted
+ * The graph can check whether the vertex is in the graph or a edge is in a vertex
+ * The graph can output all edges of a vertex as a string
+ * The graph can be traverted via breath first search, dephth first search, dijkstra's 
+ * algorithm, prim's algorithm, and krustal's algorthm.
+ *
+ * ---------------------
  * A graph is made up of vertices and edges.
  * Vertex labels are unique.
  * A vertex can be connected to other vertices via weighted, directed edge.
@@ -18,39 +27,9 @@
 
 #include <map>
 #include <string>
+#include "vertex.h"
 
 using namespace std;
-
-class Vertex
-{
-    friend class Graph;
-
-    // constructor
-    Vertex(string value);
-
-    struct Edge
-    {
-        friend class Graph;
-
-        // constructor
-        Edge(int distance, Vertex *destination)
-        {
-            this->distance = distance;
-            this->destination = destination;
-        }
-
-    private:
-        // distance from current vertex to vertex of destination
-        int distance = 0;
-
-        // destination vertex
-        Vertex *destination = nullptr;
-    };
-
-private:
-    string value;              // string name/value of vertex
-    map<string, Edge *> edges; // all edges of vertex
-};
 
 class Graph
 {
@@ -111,10 +90,11 @@ public:
     bool readFile(const string &filename);
 
     // depth-first traversal starting from given startLabel
+    // call the function visit on each vertex
     void dfs(const string &startLabel, void visit(const string &label));
 
     // breadth-first traversal starting from startLabel
-    // call the function visit on each vertex label */
+    // call the function visit on each vertex 
     void bfs(const string &startLabel, void visit(const string &label));
 
     // dijkstra's algorithm to find shortest distance to all other vertices
@@ -129,6 +109,7 @@ public:
     // ONLY works for NONDIRECTED graphs
     // ASSUMES the edge [P->Q] has the same weight as [Q->P]
     // @return length of the minimum spanning tree or -1 if start vertex not
+    // call the function visit on each vertex
     int mstPrim(const string &startLabel,
                 void visit(const string &from, const string &to,
                            int weight)) const;
@@ -137,6 +118,7 @@ public:
     // ONLY works for NONDIRECTED graphs
     // ASSUMES the edge [P->Q] has the same weight as [Q->P]
     // @return length of the minimum spanning tree or -1 if start vertex not
+    // call the function visit on every non-redundant path/edge
     int mstKruskal(const string &startLabel,
                    void visit(const string &from, const string &to,
                               int weight)) const;

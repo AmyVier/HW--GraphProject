@@ -1,4 +1,4 @@
-Mon Apr 29 21:39:24 PDT 2024
+Mon Apr 29 21:58:22 PDT 2024
 Linux csslab7 4.18.0-513.18.1.el8_9.x86_64 #1 SMP Wed Feb 21 21:34:36 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
 uid=1158009(amyv16) gid=2121158009(amyv16) groups=2121158009(amyv16),605559(lab-access)
 =====================================================
@@ -16,9 +16,9 @@ Done!
 =====================================================
 3. clang-tidy warnings are fixed
 =====================================================
-61421 warnings generated.
-103458 warnings generated.
-137957 warnings generated.
+61423 warnings generated.
+103526 warnings generated.
+138025 warnings generated.
 /home/NETID/amyv16/HW3-GraphProject/graph.cpp:2:1: error: system include algorithm not allowed [llvmlibc-restrict-system-libc-headers,-warnings-as-errors]
 #include <algorithm>
 ^~~~~~~~~~~~~~~~~~~~
@@ -56,1197 +56,1171 @@ note: this fix will not be applied because it overlaps with another fix
 /home/NETID/amyv16/HW3-GraphProject/graph.cpp:13:17: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
 using namespace std;
                 ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:16:9: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
-Vertex::Vertex(string value)
-        ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:18:3: error: 'value' should be initialized in a member initializer of the constructor [cppcoreguidelines-prefer-member-initializer,-warnings-as-errors]
-  this->value = value;
-  ^~~~~~~~~~~~~~~~~~~~
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:18:15: error: 'operator=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
-  this->value = value;
-              ^
-/opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/basic_string.h:800:7: note: resolves to this declaration
-      operator=(const basic_string& __str)
-      ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:18:17: error: parameter 'value' is passed by value and only copied once; consider moving it to avoid unnecessary copies [performance-unnecessary-value-param,-warnings-as-errors]
-  this->value = value;
-                ^
-note: this fix will not be applied because it overlaps with another fix
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:23:8: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:17:8: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
 Graph::Graph(bool directionalEdges)
        ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:25:3: error: 'directionalEdges' should be initialized in a member initializer of the constructor [cppcoreguidelines-prefer-member-initializer,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:19:3: error: 'directionalEdges' should be initialized in a member initializer of the constructor [cppcoreguidelines-prefer-member-initializer,-warnings-as-errors]
   this->directionalEdges = directionalEdges;
   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:29:8: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:23:8: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
 Graph::~Graph()
        ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:31:20: error: invalid case style for variable 'vertex' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:25:20: error: invalid case style for variable 'vertex' [readability-identifier-naming,-warnings-as-errors]
   for (const auto &vertex : vertices)
                    ^~~~~~
                    Vertex
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:31:27: error: 'operator!=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:25:27: error: 'operator!=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
   for (const auto &vertex : vertices)
                           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:320:7: note: resolves to this declaration
       operator!=(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:31:27: error: 'operator*' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:25:27: error: 'operator*' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
   for (const auto &vertex : vertices)
                           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:277:7: note: resolves to this declaration
       operator*() const _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:31:27: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:25:27: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
   for (const auto &vertex : vertices)
                           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:285:7: note: resolves to this declaration
       operator++() _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:33:5: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:27:5: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
     for (const auto &edge : vertex.second->edges)
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:33:22: error: invalid case style for variable 'edge' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:27:22: error: invalid case style for variable 'edge' [readability-identifier-naming,-warnings-as-errors]
     for (const auto &edge : vertex.second->edges)
                      ^~~~
                      Edge
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:33:27: error: 'operator!=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:27:27: error: 'operator!=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     for (const auto &edge : vertex.second->edges)
                           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:320:7: note: resolves to this declaration
       operator!=(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:33:27: error: 'operator*' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:27:27: error: 'operator*' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     for (const auto &edge : vertex.second->edges)
                           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:277:7: note: resolves to this declaration
       operator*() const _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:33:27: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:27:27: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     for (const auto &edge : vertex.second->edges)
                           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:285:7: note: resolves to this declaration
       operator++() _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:42:12: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:36:12: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
 int Graph::verticesSize() const
            ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:44:10: error: narrowing conversion from 'size_type' (aka 'unsigned long') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:38:10: error: narrowing conversion from 'size_type' (aka 'unsigned long') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions,-warnings-as-errors]
   return vertices.size();
          ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:48:12: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:42:12: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
 int Graph::edgesSize() const
            ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:50:7: error: invalid case style for variable 'numberOfEdges' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:44:7: error: invalid case style for variable 'numberOfEdges' [readability-identifier-naming,-warnings-as-errors]
   int numberOfEdges = 0;
       ^~~~~~~~~~~~~
       NumberOfEdges
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:51:3: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:45:3: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
   for (const auto &vertex : vertices)
   ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:51:20: error: invalid case style for variable 'vertex' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:45:20: error: invalid case style for variable 'vertex' [readability-identifier-naming,-warnings-as-errors]
   for (const auto &vertex : vertices)
                    ^~~~~~
                    Vertex
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:51:27: error: 'operator!=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:45:27: error: 'operator!=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
   for (const auto &vertex : vertices)
                           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:401:7: note: resolves to this declaration
       operator!=(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:51:27: error: 'operator*' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:45:27: error: 'operator*' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
   for (const auto &vertex : vertices)
                           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:358:7: note: resolves to this declaration
       operator*() const _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:51:27: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:45:27: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
   for (const auto &vertex : vertices)
                           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:366:7: note: resolves to this declaration
       operator++() _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:53:22: error: narrowing conversion from 'size_type' (aka 'unsigned long') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:47:22: error: narrowing conversion from 'size_type' (aka 'unsigned long') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions,-warnings-as-errors]
     numberOfEdges += vertex.second->edges.size();
                      ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:65:12: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:59:12: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
 int Graph::vertexDegree(const string &label) const
            ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:67:11: error: invalid case style for variable 'vertexFind' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:61:11: error: invalid case style for variable 'vertexFind' [readability-identifier-naming,-warnings-as-errors]
   Vertex *vertexFind = nullptr; // vertex found
           ^~~~~~~~~~
           VertexFind
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:69:7: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:63:7: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
   if (vertices.count(label))
       ^
                             != 0u
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:78:10: error: narrowing conversion from 'size_type' (aka 'unsigned long') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:72:10: error: narrowing conversion from 'size_type' (aka 'unsigned long') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions,-warnings-as-errors]
   return vertexFind->edges.size();
          ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:82:13: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:76:13: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
 bool Graph::add(const string &label)
             ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:84:7: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:78:7: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
   if (vertices.count(label))
       ^
                             != 0u
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:88:3: error: do not use 'else' after 'return' [llvm-else-after-return,readability-else-after-return,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:82:3: error: do not use 'else' after 'return' [llvm-else-after-return,readability-else-after-return,-warnings-as-errors]
   else
   ^~~~
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:97:13: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:91:13: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
 bool Graph::contains(const string &label) const
             ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:99:10: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:93:10: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
   return vertices.count(label);
          ^
                                != 0u
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:104:15: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:98:15: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
 string Graph::getEdgesAsString(const string &label) const
               ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:106:11: error: invalid case style for variable 'vertexFind' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:100:11: error: invalid case style for variable 'vertexFind' [readability-identifier-naming,-warnings-as-errors]
   Vertex *vertexFind = nullptr; // vertex found
           ^~~~~~~~~~
           VertexFind
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:107:10: error: invalid case style for variable 'edgeString' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:101:10: error: invalid case style for variable 'edgeString' [readability-identifier-naming,-warnings-as-errors]
   string edgeString = "";       // string representing edges and weights
          ^
 note: this fix will not be applied because it overlaps with another fix
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:107:10: error: redundant string initialization [readability-redundant-string-init,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:101:10: error: redundant string initialization [readability-redundant-string-init,-warnings-as-errors]
   string edgeString = "";       // string representing edges and weights
          ^~~~~~~~~~~~~~~
          edgeString
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:110:7: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:104:7: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
   if (vertices.count(label))
       ^
                             != 0u
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:120:3: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:114:3: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
   for (const auto &vertex : vertexFind->edges)
   ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:120:20: error: invalid case style for variable 'vertex' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:114:20: error: invalid case style for variable 'vertex' [readability-identifier-naming,-warnings-as-errors]
   for (const auto &vertex : vertexFind->edges)
                    ^~~~~~
                    Vertex
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:120:27: error: 'operator!=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:114:27: error: 'operator!=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
   for (const auto &vertex : vertexFind->edges)
                           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:320:7: note: resolves to this declaration
       operator!=(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:120:27: error: 'operator*' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:114:27: error: 'operator*' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
   for (const auto &vertex : vertexFind->edges)
                           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:277:7: note: resolves to this declaration
       operator*() const _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:120:27: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:114:27: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
   for (const auto &vertex : vertexFind->edges)
                           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:285:7: note: resolves to this declaration
       operator++() _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:122:5: error: string concatenation results in allocation of unnecessary temporary strings; consider using 'operator+=' or 'string::append()' instead [performance-inefficient-string-concatenation,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:116:5: error: string concatenation results in allocation of unnecessary temporary strings; consider using 'operator+=' or 'string::append()' instead [performance-inefficient-string-concatenation,-warnings-as-errors]
     edgeString = edgeString + vertex.second->destination->value +
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:122:16: error: 'operator=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:116:16: error: 'operator=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     edgeString = edgeString + vertex.second->destination->value +
                ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/basic_string.h:841:7: note: resolves to this declaration
       operator=(basic_string&& __str)
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:122:29: error: 'operator+<char, std::char_traits<char>, std::allocator<char>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:116:29: error: 'operator+<char, std::char_traits<char>, std::allocator<char>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     edgeString = edgeString + vertex.second->destination->value +
                             ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/basic_string.h:3541:5: note: resolves to this declaration
     operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:122:65: error: 'operator+<char, std::char_traits<char>, std::allocator<char>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:116:65: error: 'operator+<char, std::char_traits<char>, std::allocator<char>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     edgeString = edgeString + vertex.second->destination->value +
                                                                 ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/basic_string.h:3676:5: note: resolves to this declaration
     operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:123:22: error: 'operator+<char, std::char_traits<char>, std::allocator<char>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:117:22: error: 'operator+<char, std::char_traits<char>, std::allocator<char>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
                  "(" + to_string(vertex.second->distance) + "),";
                      ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/basic_string.h:3639:5: note: resolves to this declaration
     operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:123:24: error: 'to_string' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:117:24: error: 'to_string' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
                  "(" + to_string(vertex.second->distance) + "),";
                        ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/basic_string.h:4150:3: note: resolves to this declaration
   to_string(int __val)
   ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:123:59: error: 'operator+<char, std::char_traits<char>, std::allocator<char>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:117:59: error: 'operator+<char, std::char_traits<char>, std::allocator<char>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
                  "(" + to_string(vertex.second->distance) + "),";
                                                           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/basic_string.h:3676:5: note: resolves to this declaration
     operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:129:16: error: 'operator=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:123:16: error: 'operator=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     edgeString = edgeString.substr(0, edgeString.size() - 1);
                ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/basic_string.h:841:7: note: resolves to this declaration
       operator=(basic_string&& __str)
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:136:13: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:130:13: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
 bool Graph::connect(const string &from, const string &to, int weight)
             ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:136:55: error: parameter name 'to' is too short, expected at least 3 characters [readability-identifier-length,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:130:55: error: parameter name 'to' is too short, expected at least 3 characters [readability-identifier-length,-warnings-as-errors]
 bool Graph::connect(const string &from, const string &to, int weight)
                                                       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:138:11: error: invalid case style for variable 'fromVertex' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:132:11: error: invalid case style for variable 'fromVertex' [readability-identifier-naming,-warnings-as-errors]
   Vertex *fromVertex = nullptr;
           ^~~~~~~~~~
           FromVertex
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:139:11: error: invalid case style for variable 'toVertex' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:133:11: error: invalid case style for variable 'toVertex' [readability-identifier-naming,-warnings-as-errors]
   Vertex *toVertex = nullptr;
           ^~~~~~~~
           ToVertex
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:142:12: error: 'operator==<char, std::char_traits<char>, std::allocator<char>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:136:12: error: 'operator==<char, std::char_traits<char>, std::allocator<char>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
   if (from == to)
            ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/basic_string.h:3698:5: note: resolves to this declaration
     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:148:8: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:142:8: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
   if (!(vertices.count(from)))
       ~^
                               == 0u
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:153:8: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:147:8: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
   if (!(vertices.count(to)))
       ~^
                             == 0u
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:158:24: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:152:24: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
   fromVertex = vertices[from];
                        ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_map.h:504:7: note: resolves to this declaration
       operator[](const key_type& __k)
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:159:22: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:153:22: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
   toVertex = vertices[to];
                      ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_map.h:504:7: note: resolves to this declaration
       operator[](const key_type& __k)
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:162:7: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:156:7: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
   if (fromVertex->edges.count(to))
       ^
                                   != 0u
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:179:13: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:173:13: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
 bool Graph::disconnect(const string &from, const string &to)
             ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:179:58: error: parameter name 'to' is too short, expected at least 3 characters [readability-identifier-length,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:173:58: error: parameter name 'to' is too short, expected at least 3 characters [readability-identifier-length,-warnings-as-errors]
 bool Graph::disconnect(const string &from, const string &to)
                                                          ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:181:11: error: invalid case style for variable 'fromVertex' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:175:11: error: invalid case style for variable 'fromVertex' [readability-identifier-naming,-warnings-as-errors]
   Vertex *fromVertex = nullptr;
           ^~~~~~~~~~
           FromVertex
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:182:11: error: invalid case style for variable 'toVertex' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:176:11: error: invalid case style for variable 'toVertex' [readability-identifier-naming,-warnings-as-errors]
   Vertex *toVertex = nullptr;
           ^~~~~~~~
           ToVertex
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:185:13: error: 'operator!=<char, std::char_traits<char>, std::allocator<char>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:179:13: error: 'operator!=<char, std::char_traits<char>, std::allocator<char>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
   if ((from != to) && (vertices.count(from) && vertices.count(to)))
             ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/basic_string.h:3776:5: note: resolves to this declaration
     operator!=(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:185:24: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:179:24: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
   if ((from != to) && (vertices.count(from) && vertices.count(to)))
                        ^
                        (                    != 0u)
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:185:48: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:179:48: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
   if ((from != to) && (vertices.count(from) && vertices.count(to)))
                                                ^
                                                (                  != 0u)
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:187:26: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:181:26: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     fromVertex = vertices[from];
                          ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_map.h:504:7: note: resolves to this declaration
       operator[](const key_type& __k)
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:188:24: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:182:24: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     toVertex = vertices[to];
                        ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_map.h:504:7: note: resolves to this declaration
       operator[](const key_type& __k)
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:196:7: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:190:7: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
   if (fromVertex->edges.count(to))
       ^
                                   != 0u
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:217:13: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:211:13: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
 void Graph::dfs(const string &startLabel, void visit(const string &label))
             ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:219:15: error: invalid case style for variable 'visited' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:213:15: error: invalid case style for variable 'visited' [readability-identifier-naming,-warnings-as-errors]
   set<string> visited;     // keep track of visited vertices
               ^~~~~~~
               Visited
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:220:19: error: invalid case style for variable 'toVisit' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:214:19: error: invalid case style for variable 'toVisit' [readability-identifier-naming,-warnings-as-errors]
   stack<Vertex *> toVisit; // keep tack of vertices to visit
                   ^~~~~~~
                   ToVisit
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:221:11: error: invalid case style for variable 'currentVertex' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:215:11: error: invalid case style for variable 'currentVertex' [readability-identifier-naming,-warnings-as-errors]
   Vertex *currentVertex = nullptr;
           ^~~~~~~~~~~~~
           CurrentVertex
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:224:7: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:218:7: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
   if (vertices.count(startLabel))
       ^
                                  != 0u
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:226:26: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:220:26: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     toVisit.push(vertices[startLabel]);
                          ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_map.h:504:7: note: resolves to this declaration
       operator[](const key_type& __k)
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:221:3: note: inferred assignment of ID-dependent value from ID-dependent  [altera-id-dependent-backward-branch]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:215:3: note: inferred assignment of ID-dependent value from ID-dependent  [altera-id-dependent-backward-branch]
   Vertex *currentVertex = nullptr;
   ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:243:51: error: variable name 'it' is too short, expected at least 3 characters [readability-identifier-length,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:237:51: error: variable name 'it' is too short, expected at least 3 characters [readability-identifier-length,-warnings-as-errors]
     map<string, Vertex::Edge *>::reverse_iterator it;
                                                   ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:243:51: error: invalid case style for variable 'it' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:237:51: error: invalid case style for variable 'it' [readability-identifier-naming,-warnings-as-errors]
     map<string, Vertex::Edge *>::reverse_iterator it;
                                                   ^~
                                                   It
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:246:5: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:240:5: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
     for (it = currentVertex->edges.rbegin(); it != currentVertex->edges.rend(); it++)
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:246:13: error: 'operator=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:240:13: error: 'operator=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     for (it = currentVertex->edges.rbegin(); it != currentVertex->edges.rend(); it++)
             ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_iterator.h:210:25: note: resolves to this declaration
       reverse_iterator& operator=(const reverse_iterator&) = default;
                         ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:246:46: error: backward branch (for loop) is ID-dependent due to variable reference to 'currentVertex' and may cause performance degradation [altera-id-dependent-backward-branch,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:240:46: error: backward branch (for loop) is ID-dependent due to variable reference to 'currentVertex' and may cause performance degradation [altera-id-dependent-backward-branch,-warnings-as-errors]
     for (it = currentVertex->edges.rbegin(); it != currentVertex->edges.rend(); it++)
                                              ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:246:49: error: 'operator!=<std::_Rb_tree_iterator<std::pair<const std::basic_string<char>, Vertex::Edge *>>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:240:49: error: 'operator!=<std::_Rb_tree_iterator<std::pair<const std::basic_string<char>, Vertex::Edge *>>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     for (it = currentVertex->edges.rbegin(); it != currentVertex->edges.rend(); it++)
                                                 ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_iterator.h:462:5: note: resolves to this declaration
     operator!=(const reverse_iterator<_Iterator>& __x,
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:246:83: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:240:83: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     for (it = currentVertex->edges.rbegin(); it != currentVertex->edges.rend(); it++)
                                                                                   ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_iterator.h:308:7: note: resolves to this declaration
       operator++(int)
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:249:12: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:243:12: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
       if (!(visited.count(it->second->destination->value)))
           ~^
                                                            == 0u
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:249:29: error: 'operator->' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:243:29: error: 'operator->' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
       if (!(visited.count(it->second->destination->value)))
                             ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_iterator.h:277:7: note: resolves to this declaration
       operator->() const
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:251:26: error: 'operator->' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:245:26: error: 'operator->' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
         visited.insert(it->second->destination->value);
                          ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_iterator.h:277:7: note: resolves to this declaration
       operator->() const
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:252:24: error: 'operator->' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:246:24: error: 'operator->' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
         toVisit.push(it->second->destination);
                        ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_iterator.h:277:7: note: resolves to this declaration
       operator->() const
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:259:13: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:253:13: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
 void Graph::bfs(const string &startLabel, void visit(const string &label))
             ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:261:15: error: invalid case style for variable 'visited' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:255:15: error: invalid case style for variable 'visited' [readability-identifier-naming,-warnings-as-errors]
   set<string> visited;     // keep track of visited vertices
               ^~~~~~~
               Visited
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:262:19: error: invalid case style for variable 'toVisit' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:256:19: error: invalid case style for variable 'toVisit' [readability-identifier-naming,-warnings-as-errors]
   queue<Vertex *> toVisit; // keep track of vertices to visit
                   ^~~~~~~
                   ToVisit
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:263:11: error: invalid case style for variable 'currentVertex' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:257:11: error: invalid case style for variable 'currentVertex' [readability-identifier-naming,-warnings-as-errors]
   Vertex *currentVertex = nullptr;
           ^~~~~~~~~~~~~
           CurrentVertex
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:266:7: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:260:7: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
   if (vertices.count(startLabel))
       ^
                                  != 0u
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:268:26: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:262:26: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     toVisit.push(vertices[startLabel]);
                          ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_map.h:504:7: note: resolves to this declaration
       operator[](const key_type& __k)
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:284:5: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:278:5: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
     for (const auto &edge : currentVertex->edges)
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:284:22: error: invalid case style for variable 'edge' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:278:22: error: invalid case style for variable 'edge' [readability-identifier-naming,-warnings-as-errors]
     for (const auto &edge : currentVertex->edges)
                      ^~~~
                      Edge
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:284:27: error: 'operator!=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:278:27: error: 'operator!=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     for (const auto &edge : currentVertex->edges)
                           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:320:7: note: resolves to this declaration
       operator!=(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:284:27: error: 'operator*' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:278:27: error: 'operator*' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     for (const auto &edge : currentVertex->edges)
                           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:277:7: note: resolves to this declaration
       operator*() const _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:284:27: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:278:27: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     for (const auto &edge : currentVertex->edges)
                           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:285:7: note: resolves to this declaration
       operator++() _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:287:12: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:281:12: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
       if (!(visited.count(edge.second->destination->value)))
           ~^
                                                             == 0u
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:301:8: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:295:8: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
 Graph::dijkstra(const string &startLabel) const
        ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:303:20: error: invalid case style for variable 'weights' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:297:20: error: invalid case style for variable 'weights' [readability-identifier-naming,-warnings-as-errors]
   map<string, int> weights;     // store weights
                    ^~~~~~~
                    Weights
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:304:23: error: invalid case style for variable 'previous' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:298:23: error: invalid case style for variable 'previous' [readability-identifier-naming,-warnings-as-errors]
   map<string, string> previous; // store previous vertices/path
                       ^~~~~~~~
                       Previous
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:313:7: error: invalid case style for variable 'toVisit' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:307:7: error: invalid case style for variable 'toVisit' [readability-identifier-naming,-warnings-as-errors]
       toVisit;
       ^~~~~~~
       ToVisit
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:315:11: error: invalid case style for variable 'currentVertex' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:309:11: error: invalid case style for variable 'currentVertex' [readability-identifier-naming,-warnings-as-errors]
   Vertex *currentVertex = nullptr;
           ^~~~~~~~~~~~~
           CurrentVertex
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:316:7: error: invalid case style for variable 'path' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:310:7: error: invalid case style for variable 'path' [readability-identifier-naming,-warnings-as-errors]
   int path = 0;                      // path cost
       ^~~~
       Path
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:317:10: error: invalid case style for variable 'previousLabel' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:311:10: error: invalid case style for variable 'previousLabel' [readability-identifier-naming,-warnings-as-errors]
   string previousLabel = startLabel; // previous vertex
          ^~~~~~~~~~~~~
          PreviousLabel
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:320:7: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:314:7: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
   if (vertices.count(startLabel))
       ^
                                  != 0u
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:322:13: error: use emplace instead of push [hicpp-use-emplace,modernize-use-emplace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:316:13: error: use emplace instead of push [hicpp-use-emplace,modernize-use-emplace,-warnings-as-errors]
     toVisit.push(make_pair(0, make_pair(startLabel, vertices.at(startLabel))));
             ^~~~~~~~~~~~~~                                                  ~
             emplace
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:322:18: error: 'make_pair<int, std::pair<std::basic_string<char>, Vertex *>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:316:18: error: 'make_pair<int, std::pair<std::basic_string<char>, Vertex *>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     toVisit.push(make_pair(0, make_pair(startLabel, vertices.at(startLabel))));
                  ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_pair.h:922:5: note: resolves to this declaration
     make_pair(_T1&& __x, _T2&& __y)
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:322:31: error: 'make_pair<const std::basic_string<char> &, Vertex *const &>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:316:31: error: 'make_pair<const std::basic_string<char> &, Vertex *const &>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     toVisit.push(make_pair(0, make_pair(startLabel, vertices.at(startLabel))));
                               ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_pair.h:922:5: note: resolves to this declaration
     make_pair(_T1&& __x, _T2&& __y)
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:326:12: error: 'make_pair<std::map<std::basic_string<char>, int> &, std::map<std::basic_string<char>, std::basic_string<char>> &>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:320:12: error: 'make_pair<std::map<std::basic_string<char>, int> &, std::map<std::basic_string<char>, std::basic_string<char>> &>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     return make_pair(weights, previous);
            ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_pair.h:922:5: note: resolves to this declaration
     make_pair(_T1&& __x, _T2&& __y)
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:333:19: error: 'operator=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:327:19: error: 'operator=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     previousLabel = toVisit.top().second.first;  // get previous vertex of vertex
                   ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/basic_string.h:800:7: note: resolves to this declaration
       operator=(const basic_string& __str)
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:338:10: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:332:10: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
     if (!(weights.count(currentVertex->value)) ||
         ~^
         (                                      == 0u)
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:342:12: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:336:12: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
       if (!(weights.count(currentVertex->value)))
           ~^
                                                  == 0u
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:349:17: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:343:17: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
         previous[currentVertex->value] = previousLabel;
                 ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_map.h:504:7: note: resolves to this declaration
       operator[](const key_type& __k)
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:349:40: error: 'operator=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:343:40: error: 'operator=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
         previous[currentVertex->value] = previousLabel;
                                        ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/basic_string.h:800:7: note: resolves to this declaration
       operator=(const basic_string& __str)
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:350:16: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:344:16: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
         weights[currentVertex->value] = path;
                ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_map.h:504:7: note: resolves to this declaration
       operator[](const key_type& __k)
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:354:7: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:348:7: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
       for (const auto &edge : currentVertex->edges)
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:354:24: error: invalid case style for variable 'edge' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:348:24: error: invalid case style for variable 'edge' [readability-identifier-naming,-warnings-as-errors]
       for (const auto &edge : currentVertex->edges)
                        ^~~~
                        Edge
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:354:29: error: 'operator!=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:348:29: error: 'operator!=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
       for (const auto &edge : currentVertex->edges)
                             ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:320:7: note: resolves to this declaration
       operator!=(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:354:29: error: 'operator*' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:348:29: error: 'operator*' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
       for (const auto &edge : currentVertex->edges)
                             ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:277:7: note: resolves to this declaration
       operator*() const _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:354:29: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:348:29: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
       for (const auto &edge : currentVertex->edges)
                             ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:285:7: note: resolves to this declaration
       operator++() _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:358:14: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:352:14: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
         if (!(weights.count(edge.second->destination->value)) ||
             ~^
             (                                                 == 0u)
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:362:19: error: use emplace instead of push [hicpp-use-emplace,modernize-use-emplace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:356:19: error: use emplace instead of push [hicpp-use-emplace,modernize-use-emplace,-warnings-as-errors]
           toVisit.push(make_pair(path + edge.second->distance,
                   ^~~~~~~~~~~~~~
                   emplace
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:362:24: error: 'make_pair<int, std::pair<std::basic_string<char>, Vertex *>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:356:24: error: 'make_pair<int, std::pair<std::basic_string<char>, Vertex *>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
           toVisit.push(make_pair(path + edge.second->distance,
                        ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_pair.h:922:5: note: resolves to this declaration
     make_pair(_T1&& __x, _T2&& __y)
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:363:34: error: 'make_pair<std::basic_string<char> &, Vertex *&>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:357:34: error: 'make_pair<std::basic_string<char> &, Vertex *&>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
                                  make_pair(currentVertex->value, edge.second->destination)));
                                  ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_pair.h:922:5: note: resolves to this declaration
     make_pair(_T1&& __x, _T2&& __y)
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:373:10: error: 'make_pair<std::map<std::basic_string<char>, int> &, std::map<std::basic_string<char>, std::basic_string<char>> &>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:367:10: error: 'make_pair<std::map<std::basic_string<char>, int> &, std::map<std::basic_string<char>, std::basic_string<char>> &>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
   return make_pair(weights, previous);
          ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_pair.h:922:5: note: resolves to this declaration
     make_pair(_T1&& __x, _T2&& __y)
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:377:12: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:371:12: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
 int Graph::mstPrim(const string &startLabel,
            ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:378:65: error: parameter name 'to' is too short, expected at least 3 characters [readability-identifier-length,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:372:65: error: parameter name 'to' is too short, expected at least 3 characters [readability-identifier-length,-warnings-as-errors]
                    void visit(const string &from, const string &to,
                                                                 ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:385:7: error: variable name 'pq' is too short, expected at least 3 characters [readability-identifier-length,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:379:7: error: variable name 'pq' is too short, expected at least 3 characters [readability-identifier-length,-warnings-as-errors]
       pq;
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:385:7: error: invalid case style for variable 'pq' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:379:7: error: invalid case style for variable 'pq' [readability-identifier-naming,-warnings-as-errors]
       pq;
       ^~
       Pq
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:388:15: error: invalid case style for variable 'visited' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:382:15: error: invalid case style for variable 'visited' [readability-identifier-naming,-warnings-as-errors]
   set<string> visited;
               ^~~~~~~
               Visited
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:391:9: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:385:9: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
   if (!(vertices.count(startLabel) || directionalEdges))
         ^
         (                          != 0u)
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:400:3: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:394:3: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
   for (const auto &edge : vertices.at(startLabel)->edges)
   ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:400:20: error: invalid case style for variable 'edge' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:394:20: error: invalid case style for variable 'edge' [readability-identifier-naming,-warnings-as-errors]
   for (const auto &edge : vertices.at(startLabel)->edges)
                    ^~~~
                    Edge
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:400:25: error: 'operator!=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:394:25: error: 'operator!=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
   for (const auto &edge : vertices.at(startLabel)->edges)
                         ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:320:7: note: resolves to this declaration
       operator!=(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:400:25: error: 'operator*' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:394:25: error: 'operator*' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
   for (const auto &edge : vertices.at(startLabel)->edges)
                         ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:277:7: note: resolves to this declaration
       operator*() const _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:400:25: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:394:25: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
   for (const auto &edge : vertices.at(startLabel)->edges)
                         ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:285:7: note: resolves to this declaration
       operator++() _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:405:7: error: invalid case style for variable 'totalWeight' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:399:7: error: invalid case style for variable 'totalWeight' [readability-identifier-naming,-warnings-as-errors]
   int totalWeight = 0; // Total weight of the MST
       ^~~~~~~~~~~
       TotalWeight
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:411:10: error: invalid case style for variable 'edge' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:405:10: error: invalid case style for variable 'edge' [readability-identifier-naming,-warnings-as-errors]
     auto edge = pq.top();
          ^~~~
          Edge
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:414:5: error: variable 'weight' of type 'int' can be declared 'const' [misc-const-correctness,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:408:5: error: variable 'weight' of type 'int' can be declared 'const' [misc-const-correctness,-warnings-as-errors]
     int weight = edge.first;
     ^
         const 
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:414:9: error: invalid case style for variable 'weight' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:408:9: error: invalid case style for variable 'weight' [readability-identifier-naming,-warnings-as-errors]
     int weight = edge.first;
         ^~~~~~
         Weight
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:415:5: error: variable 'fromVertex' of type 'string' (aka 'basic_string<char>') can be declared 'const' [misc-const-correctness,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:409:5: error: variable 'fromVertex' of type 'string' (aka 'basic_string<char>') can be declared 'const' [misc-const-correctness,-warnings-as-errors]
     string fromVertex = edge.second.first;
     ^
            const 
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:415:12: error: invalid case style for variable 'fromVertex' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:409:12: error: invalid case style for variable 'fromVertex' [readability-identifier-naming,-warnings-as-errors]
     string fromVertex = edge.second.first;
            ^~~~~~~~~~
            FromVertex
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:416:5: error: variable 'toVertex' of type 'string' (aka 'basic_string<char>') can be declared 'const' [misc-const-correctness,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:410:5: error: variable 'toVertex' of type 'string' (aka 'basic_string<char>') can be declared 'const' [misc-const-correctness,-warnings-as-errors]
     string toVertex = edge.second.second;
     ^
            const 
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:416:12: error: invalid case style for variable 'toVertex' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:410:12: error: invalid case style for variable 'toVertex' [readability-identifier-naming,-warnings-as-errors]
     string toVertex = edge.second.second;
            ^~~~~~~~
            ToVertex
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:419:9: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:413:9: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
     if (visited.count(toVertex))
         ^
                                 != 0u
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:434:5: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:428:5: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
     for (const auto &nextEdge : vertices.at(toVertex)->edges)
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:434:22: error: invalid case style for variable 'nextEdge' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:428:22: error: invalid case style for variable 'nextEdge' [readability-identifier-naming,-warnings-as-errors]
     for (const auto &nextEdge : vertices.at(toVertex)->edges)
                      ^~~~~~~~
                      NextEdge
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:434:31: error: 'operator!=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:428:31: error: 'operator!=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     for (const auto &nextEdge : vertices.at(toVertex)->edges)
                               ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:320:7: note: resolves to this declaration
       operator!=(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:434:31: error: 'operator*' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:428:31: error: 'operator*' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     for (const auto &nextEdge : vertices.at(toVertex)->edges)
                               ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:277:7: note: resolves to this declaration
       operator*() const _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:434:31: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:428:31: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     for (const auto &nextEdge : vertices.at(toVertex)->edges)
                               ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:285:7: note: resolves to this declaration
       operator++() _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:436:12: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:430:12: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
       if (!visited.count(nextEdge.first))
           ~^
                                          == 0u
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:447:12: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:441:12: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
 int Graph::mstKruskal(const string &startLabel,
            ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:447:12: error: function 'mstKruskal' has cognitive complexity of 32 (threshold 25) [readability-function-cognitive-complexity,-warnings-as-errors]
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:478:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:441:12: error: function 'mstKruskal' has cognitive complexity of 32 (threshold 25) [readability-function-cognitive-complexity,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:472:3: note: +1, including nesting penalty of 0, nesting level increased to 1
   if (!(vertices.count(startLabel)) || directionalEdges)
   ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:478:37: note: +1
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:472:37: note: +1
   if (!(vertices.count(startLabel)) || directionalEdges)
                                     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:484:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:478:3: note: +1, including nesting penalty of 0, nesting level increased to 1
   for (const auto &vertex : vertices)
   ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:486:5: note: +2, including nesting penalty of 1, nesting level increased to 2
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:480:5: note: +2, including nesting penalty of 1, nesting level increased to 2
     for (const auto &edge : vertex.second->edges)
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:494:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:488:3: note: +1, including nesting penalty of 0, nesting level increased to 1
   while (!(edges.empty()))
   ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:505:5: note: +2, including nesting penalty of 1, nesting level increased to 2
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:499:5: note: +2, including nesting penalty of 1, nesting level increased to 2
     for (int i = 0; i < minimumSpanningTree.size(); i++)
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:507:7: note: +3, including nesting penalty of 2, nesting level increased to 3
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:501:7: note: +3, including nesting penalty of 2, nesting level increased to 3
       if (minimumSpanningTree[i].second.second.count(fromVertex))
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:512:7: note: +3, including nesting penalty of 2, nesting level increased to 3
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:506:7: note: +3, including nesting penalty of 2, nesting level increased to 3
       if (minimumSpanningTree[i].second.second.count(toVertex))
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:519:5: note: +2, including nesting penalty of 1, nesting level increased to 2
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:513:5: note: +2, including nesting penalty of 1, nesting level increased to 2
     if (fromIndex == -1 && toIndex == -1)
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:519:25: note: +1
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:513:25: note: +1
     if (fromIndex == -1 && toIndex == -1)
                         ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:536:10: note: +1, nesting level increased to 2
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:530:10: note: +1, nesting level increased to 2
     else if (fromIndex == -1 && toIndex != -1)
          ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:536:30: note: +1
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:530:30: note: +1
     else if (fromIndex == -1 && toIndex != -1)
                              ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:545:10: note: +1, nesting level increased to 2
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:539:10: note: +1, nesting level increased to 2
     else if (fromIndex != -1 && toIndex == -1)
          ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:545:30: note: +1
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:539:30: note: +1
     else if (fromIndex != -1 && toIndex == -1)
                              ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:556:10: note: +1, nesting level increased to 2
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:550:10: note: +1, nesting level increased to 2
     else if (fromIndex != -1 && toIndex != -1 &&
          ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:557:35: note: +1
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:551:35: note: +1
              fromIndex != toIndex &&
                                   ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:573:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:567:3: note: +1, including nesting penalty of 0, nesting level increased to 1
   for (int i = 0; i < minimumSpanningTree.size(); i++)
   ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:575:5: note: +2, including nesting penalty of 1, nesting level increased to 2
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:569:5: note: +2, including nesting penalty of 1, nesting level increased to 2
     if (minimumSpanningTree[i].second.second.count(startLabel))
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:586:3: note: +1, including nesting penalty of 0, nesting level increased to 1
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:580:3: note: +1, including nesting penalty of 0, nesting level increased to 1
   while (!(minimumSpanningTreeTraversal.empty()))
   ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:596:5: note: +2, including nesting penalty of 1, nesting level increased to 2
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:590:5: note: +2, including nesting penalty of 1, nesting level increased to 2
     for (int connectedVertices :
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:599:7: note: +3, including nesting penalty of 2, nesting level increased to 3
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:593:7: note: +3, including nesting penalty of 2, nesting level increased to 3
       if (!(visited.count(connectedVertices)))
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:448:68: error: parameter name 'to' is too short, expected at least 3 characters [readability-identifier-length,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:442:68: error: parameter name 'to' is too short, expected at least 3 characters [readability-identifier-length,-warnings-as-errors]
                       void visit(const string &from, const string &to,
                                                                    ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:456:7: error: invalid case style for variable 'edges' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:450:7: error: invalid case style for variable 'edges' [readability-identifier-naming,-warnings-as-errors]
       edges;
       ^~~~~
       Edges
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:463:50: error: invalid case style for variable 'minimumSpanningTree' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:457:50: error: invalid case style for variable 'minimumSpanningTree' [readability-identifier-naming,-warnings-as-errors]
   vector<pair<int, pair<set<int>, set<string>>>> minimumSpanningTree;
                                                  ^~~~~~~~~~~~~~~~~~~
                                                  MinimumSpanningTree
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:466:7: error: invalid case style for variable 'startVertexConnection' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:460:7: error: invalid case style for variable 'startVertexConnection' [readability-identifier-naming,-warnings-as-errors]
   int startVertexConnection = -1;
       ^~~~~~~~~~~~~~~~~~~~~
       StartVertexConnection
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:469:7: error: invalid case style for variable 'total' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:463:7: error: invalid case style for variable 'total' [readability-identifier-naming,-warnings-as-errors]
   int total = 0;
       ^~~~~
       Total
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:472:14: error: invalid case style for variable 'minimumSpanningTreeTraversal' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:466:14: error: invalid case style for variable 'minimumSpanningTreeTraversal' [readability-identifier-naming,-warnings-as-errors]
   queue<int> minimumSpanningTreeTraversal;
              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
              MinimumSpanningTreeTraversal
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:475:12: error: invalid case style for variable 'visited' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:469:12: error: invalid case style for variable 'visited' [readability-identifier-naming,-warnings-as-errors]
   set<int> visited;
            ^~~~~~~
            Visited
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:478:8: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:472:8: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
   if (!(vertices.count(startLabel)) || directionalEdges)
       ~^
       (                             == 0u)
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:484:20: error: invalid case style for variable 'vertex' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:478:20: error: invalid case style for variable 'vertex' [readability-identifier-naming,-warnings-as-errors]
   for (const auto &vertex : vertices)
                    ^~~~~~
                    Vertex
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:484:27: error: 'operator!=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:478:27: error: 'operator!=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
   for (const auto &vertex : vertices)
                           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:401:7: note: resolves to this declaration
       operator!=(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:484:27: error: 'operator*' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:478:27: error: 'operator*' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
   for (const auto &vertex : vertices)
                           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:358:7: note: resolves to this declaration
       operator*() const _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:484:27: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:478:27: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
   for (const auto &vertex : vertices)
                           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:366:7: note: resolves to this declaration
       operator++() _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:486:5: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:480:5: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
     for (const auto &edge : vertex.second->edges)
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:486:22: error: invalid case style for variable 'edge' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:480:22: error: invalid case style for variable 'edge' [readability-identifier-naming,-warnings-as-errors]
     for (const auto &edge : vertex.second->edges)
                      ^~~~
                      Edge
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:486:27: error: 'operator!=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:480:27: error: 'operator!=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     for (const auto &edge : vertex.second->edges)
                           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:320:7: note: resolves to this declaration
       operator!=(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:486:27: error: 'operator*' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:480:27: error: 'operator*' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     for (const auto &edge : vertex.second->edges)
                           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:277:7: note: resolves to this declaration
       operator*() const _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:486:27: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:480:27: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     for (const auto &edge : vertex.second->edges)
                           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:285:7: note: resolves to this declaration
       operator++() _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:488:13: error: use emplace instead of push [hicpp-use-emplace,modernize-use-emplace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:482:13: error: use emplace instead of push [hicpp-use-emplace,modernize-use-emplace,-warnings-as-errors]
       edges.push(make_pair(edge.second->distance,
             ^~~~~~~~~~~~~~
             emplace
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:488:18: error: 'make_pair<int &, std::pair<std::basic_string<char>, std::basic_string<char>>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:482:18: error: 'make_pair<int &, std::pair<std::basic_string<char>, std::basic_string<char>>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
       edges.push(make_pair(edge.second->distance,
                  ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_pair.h:922:5: note: resolves to this declaration
     make_pair(_T1&& __x, _T2&& __y)
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:489:28: error: 'make_pair<const std::basic_string<char> &, const std::basic_string<char> &>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:483:28: error: 'make_pair<const std::basic_string<char> &, const std::basic_string<char> &>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
                            make_pair(vertex.first, edge.first)));
                            ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_pair.h:922:5: note: resolves to this declaration
     make_pair(_T1&& __x, _T2&& __y)
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:496:9: error: invalid case style for variable 'fromIndex' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:490:9: error: invalid case style for variable 'fromIndex' [readability-identifier-naming,-warnings-as-errors]
     int fromIndex = -1; // cluster index where the from vertex is located
         ^~~~~~~~~
         FromIndex
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:497:9: error: invalid case style for variable 'toIndex' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:491:9: error: invalid case style for variable 'toIndex' [readability-identifier-naming,-warnings-as-errors]
     int toIndex = -1;   // cluster index where the to vertex is located
         ^~~~~~~
         ToIndex
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:499:5: error: variable 'distance' of type 'int' can be declared 'const' [misc-const-correctness,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:493:5: error: variable 'distance' of type 'int' can be declared 'const' [misc-const-correctness,-warnings-as-errors]
     int distance = edges.top().first;             // cost of edge
     ^
         const 
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:499:9: error: invalid case style for variable 'distance' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:493:9: error: invalid case style for variable 'distance' [readability-identifier-naming,-warnings-as-errors]
     int distance = edges.top().first;             // cost of edge
         ^~~~~~~~
         Distance
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:500:5: error: variable 'fromVertex' of type 'string' (aka 'basic_string<char>') can be declared 'const' [misc-const-correctness,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:494:5: error: variable 'fromVertex' of type 'string' (aka 'basic_string<char>') can be declared 'const' [misc-const-correctness,-warnings-as-errors]
     string fromVertex = edges.top().second.first; // from vertex
     ^
            const 
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:500:12: error: invalid case style for variable 'fromVertex' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:494:12: error: invalid case style for variable 'fromVertex' [readability-identifier-naming,-warnings-as-errors]
     string fromVertex = edges.top().second.first; // from vertex
            ^~~~~~~~~~
            FromVertex
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:501:5: error: variable 'toVertex' of type 'string' (aka 'basic_string<char>') can be declared 'const' [misc-const-correctness,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:495:5: error: variable 'toVertex' of type 'string' (aka 'basic_string<char>') can be declared 'const' [misc-const-correctness,-warnings-as-errors]
     string toVertex = edges.top().second.second;  // tto vertex
     ^
            const 
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:501:12: error: invalid case style for variable 'toVertex' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:495:12: error: invalid case style for variable 'toVertex' [readability-identifier-naming,-warnings-as-errors]
     string toVertex = edges.top().second.second;  // tto vertex
            ^~~~~~~~
            ToVertex
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:505:5: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:499:5: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
     for (int i = 0; i < minimumSpanningTree.size(); i++)
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:505:14: error: invalid case style for variable 'i' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:499:14: error: invalid case style for variable 'i' [readability-identifier-naming,-warnings-as-errors]
     for (int i = 0; i < minimumSpanningTree.size(); i++)
              ^      ~                               ~
              I      I                               I
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:507:11: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:501:11: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
       if (minimumSpanningTree[i].second.second.count(fromVertex))
           ^
                                                                  != 0u
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:507:30: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:501:30: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
       if (minimumSpanningTree[i].second.second.count(fromVertex))
                              ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_vector.h:1123:7: note: resolves to this declaration
       operator[](size_type __n) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:512:11: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:506:11: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
       if (minimumSpanningTree[i].second.second.count(toVertex))
           ^
                                                                != 0u
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:512:30: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:506:30: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
       if (minimumSpanningTree[i].second.second.count(toVertex))
                              ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_vector.h:1123:7: note: resolves to this declaration
       operator[](size_type __n) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:522:19: error: invalid case style for variable 'connectedVertices' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:516:19: error: invalid case style for variable 'connectedVertices' [readability-identifier-naming,-warnings-as-errors]
       set<string> connectedVertices;
                   ^~~~~~~~~~~~~~~~~
                   ConnectedVertices
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:527:7: error: variable 'otherConnectedVertices' of type 'set<int>' can be declared 'const' [misc-const-correctness,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:521:7: error: variable 'otherConnectedVertices' of type 'set<int>' can be declared 'const' [misc-const-correctness,-warnings-as-errors]
       set<int> otherConnectedVertices;
       ^
                const 
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:527:16: error: invalid case style for variable 'otherConnectedVertices' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:521:16: error: invalid case style for variable 'otherConnectedVertices' [readability-identifier-naming,-warnings-as-errors]
       set<int> otherConnectedVertices;
                ^~~~~~~~~~~~~~~~~~~~~~
                OtherConnectedVertices
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:530:27: error: use emplace_back instead of push_back [hicpp-use-emplace,modernize-use-emplace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:524:27: error: use emplace_back instead of push_back [hicpp-use-emplace,modernize-use-emplace,-warnings-as-errors]
       minimumSpanningTree.push_back(
                           ^~~~~~~~~~
                           emplace_back
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:531:11: error: 'make_pair<int &, std::pair<std::set<int>, std::set<std::basic_string<char>>>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:525:11: error: 'make_pair<int &, std::pair<std::set<int>, std::set<std::basic_string<char>>>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
           make_pair(distance, make_pair(otherConnectedVertices, connectedVertices)));
           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_pair.h:922:5: note: resolves to this declaration
     make_pair(_T1&& __x, _T2&& __y)
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:531:31: error: 'make_pair<std::set<int> &, std::set<std::basic_string<char>> &>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:525:31: error: 'make_pair<std::set<int> &, std::set<std::basic_string<char>> &>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
           make_pair(distance, make_pair(otherConnectedVertices, connectedVertices)));
                               ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_pair.h:922:5: note: resolves to this declaration
     make_pair(_T1&& __x, _T2&& __y)
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:539:26: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:533:26: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
       minimumSpanningTree[toIndex].second.second.insert(fromVertex);
                          ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_vector.h:1123:7: note: resolves to this declaration
       operator[](size_type __n) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:540:26: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:534:26: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
       minimumSpanningTree[toIndex].first =
                          ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_vector.h:1123:7: note: resolves to this declaration
       operator[](size_type __n) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:541:30: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:535:30: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
           minimumSpanningTree[toIndex].first + distance;
                              ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_vector.h:1123:7: note: resolves to this declaration
       operator[](size_type __n) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:548:26: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:542:26: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
       minimumSpanningTree[fromIndex].second.second.insert(toVertex);
                          ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_vector.h:1123:7: note: resolves to this declaration
       operator[](size_type __n) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:549:26: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:543:26: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
       minimumSpanningTree[fromIndex].first =
                          ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_vector.h:1123:7: note: resolves to this declaration
       operator[](size_type __n) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:550:30: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:544:30: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
           minimumSpanningTree[fromIndex].first + distance;
                              ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_vector.h:1123:7: note: resolves to this declaration
       operator[](size_type __n) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:558:15: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:552:15: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
              !(minimumSpanningTree[fromIndex].second.first.count(toIndex)))
              ~^
              (                                                             == 0u)
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:558:35: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:552:35: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
              !(minimumSpanningTree[fromIndex].second.first.count(toIndex)))
                                   ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_vector.h:1123:7: note: resolves to this declaration
       operator[](size_type __n) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:561:26: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:555:26: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
       minimumSpanningTree[fromIndex].second.first.insert(toIndex);
                          ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_vector.h:1123:7: note: resolves to this declaration
       operator[](size_type __n) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:562:26: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:556:26: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
       minimumSpanningTree[toIndex].second.first.insert(fromIndex);
                          ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_vector.h:1123:7: note: resolves to this declaration
       operator[](size_type __n) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:565:26: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:559:26: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
       minimumSpanningTree[fromIndex].first =
                          ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_vector.h:1123:7: note: resolves to this declaration
       operator[](size_type __n) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:566:30: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:560:30: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
           minimumSpanningTree[fromIndex].first + distance;
                              ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_vector.h:1123:7: note: resolves to this declaration
       operator[](size_type __n) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:573:3: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:567:3: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
   for (int i = 0; i < minimumSpanningTree.size(); i++)
   ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:573:12: error: invalid case style for variable 'i' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:567:12: error: invalid case style for variable 'i' [readability-identifier-naming,-warnings-as-errors]
   for (int i = 0; i < minimumSpanningTree.size(); i++)
            ^      ~                               ~
            I      I                               I
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:575:9: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:569:9: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
     if (minimumSpanningTree[i].second.second.count(startLabel))
         ^
                                                                != 0u
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:575:28: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:569:28: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     if (minimumSpanningTree[i].second.second.count(startLabel))
                            ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_vector.h:1123:7: note: resolves to this declaration
       operator[](size_type __n) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:593:40: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:587:40: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     total = total + minimumSpanningTree[startVertexConnection].first;
                                        ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_vector.h:1123:7: note: resolves to this declaration
       operator[](size_type __n) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:596:5: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:590:5: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
     for (int connectedVertices :
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:596:10: error: variable 'connectedVertices' of type 'int' can be declared 'const' [misc-const-correctness,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:590:10: error: variable 'connectedVertices' of type 'int' can be declared 'const' [misc-const-correctness,-warnings-as-errors]
     for (int connectedVertices :
          ^
              const 
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:596:14: error: invalid case style for variable 'connectedVertices' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:590:14: error: invalid case style for variable 'connectedVertices' [readability-identifier-naming,-warnings-as-errors]
     for (int connectedVertices :
              ^~~~~~~~~~~~~~~~~
              ConnectedVertices
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:596:32: error: 'operator!=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:590:32: error: 'operator!=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     for (int connectedVertices :
                                ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:401:7: note: resolves to this declaration
       operator!=(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:596:32: error: 'operator*' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:590:32: error: 'operator*' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     for (int connectedVertices :
                                ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:358:7: note: resolves to this declaration
       operator*() const _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:596:32: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:590:32: error: 'operator++' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     for (int connectedVertices :
                                ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_tree.h:366:7: note: resolves to this declaration
       operator++() _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:597:29: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:591:29: error: 'operator[]' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
          minimumSpanningTree[startVertexConnection].second.first)
                             ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/stl_vector.h:1123:7: note: resolves to this declaration
       operator[](size_type __n) _GLIBCXX_NOEXCEPT
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:599:12: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:593:12: error: implicit conversion 'size_type' (aka 'unsigned long') -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
       if (!(visited.count(connectedVertices)))
           ~^
                                               == 0u
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:611:13: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:605:13: error: declaration must be declared within the '__llvm_libc' namespace [llvmlibc-implementation-in-namespace,-warnings-as-errors]
 bool Graph::readFile(const string &filename)
             ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:613:12: error: invalid case style for variable 'myfile' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:607:12: error: invalid case style for variable 'myfile' [readability-identifier-naming,-warnings-as-errors]
   ifstream myfile(filename);
            ^~~~~~
            Myfile
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:616:10: error: 'operator<<<std::char_traits<char>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:610:10: error: 'operator<<<std::char_traits<char>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     cerr << "Failed to open " << filename << endl;
          ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/ostream:662:5: note: resolves to this declaration
     operator<<(basic_ostream<char, _Traits>& __out, const char* __s)
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:616:31: error: 'operator<<<char, std::char_traits<char>, std::allocator<char>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:610:31: error: 'operator<<<char, std::char_traits<char>, std::allocator<char>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     cerr << "Failed to open " << filename << endl;
                               ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/basic_string.h:4020:5: note: resolves to this declaration
     operator<<(basic_ostream<_CharT, _Traits>& __os,
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:616:43: error: 'operator<<' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:610:43: error: 'operator<<' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     cerr << "Failed to open " << filename << endl;
                                           ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/ostream:110:7: note: resolves to this declaration
       operator<<(__ostream_type& (*__pf)(__ostream_type&))
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:616:46: error: 'endl<char, std::char_traits<char>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:610:46: error: 'endl<char, std::char_traits<char>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     cerr << "Failed to open " << filename << endl;
                                              ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/ostream:735:5: note: resolves to this declaration
     endl(basic_ostream<_CharT, _Traits>& __os)
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:619:7: error: invalid case style for variable 'edges' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:613:7: error: invalid case style for variable 'edges' [readability-identifier-naming,-warnings-as-errors]
   int edges = 0;
       ^~~~~
       Edges
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:620:7: error: invalid case style for variable 'weight' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:614:7: error: invalid case style for variable 'weight' [readability-identifier-naming,-warnings-as-errors]
   int weight = 0;
       ^~~~~~
       Weight
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:621:10: error: invalid case style for variable 'fromVertex' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:615:10: error: invalid case style for variable 'fromVertex' [readability-identifier-naming,-warnings-as-errors]
   string fromVertex;
          ^~~~~~~~~~
          FromVertex
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:622:10: error: invalid case style for variable 'toVertex' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:616:10: error: invalid case style for variable 'toVertex' [readability-identifier-naming,-warnings-as-errors]
   string toVertex;
          ^~~~~~~~
          ToVertex
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:623:10: error: 'operator>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:617:10: error: 'operator>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
   myfile >> edges;
          ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/istream:181:7: note: resolves to this declaration
       operator>>(int& __n);
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:624:3: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:618:3: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
   for (int i = 0; i < edges; ++i)
   ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:624:12: error: invalid case style for variable 'i' [readability-identifier-naming,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:618:12: error: invalid case style for variable 'i' [readability-identifier-naming,-warnings-as-errors]
   for (int i = 0; i < edges; ++i)
            ^      ~            ~
            I      I            I
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:626:12: error: 'operator>><char, std::char_traits<char>, std::allocator<char>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:620:12: error: 'operator>><char, std::char_traits<char>, std::allocator<char>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     myfile >> fromVertex >> toVertex >> weight;
            ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/basic_string.h:4007:5: note: resolves to this declaration
     operator>>(basic_istream<char>& __is, basic_string<char>& __str);
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:626:26: error: 'operator>><char, std::char_traits<char>, std::allocator<char>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:620:26: error: 'operator>><char, std::char_traits<char>, std::allocator<char>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     myfile >> fromVertex >> toVertex >> weight;
                          ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/basic_string.h:4007:5: note: resolves to this declaration
     operator>>(basic_istream<char>& __is, basic_string<char>& __str);
     ^
-/home/NETID/amyv16/HW3-GraphProject/graph.cpp:626:38: error: 'operator>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.cpp:620:38: error: 'operator>>' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
     myfile >> fromVertex >> toVertex >> weight;
                                      ^
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/istream:181:7: note: resolves to this declaration
       operator>>(int& __n);
       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.h:19:1: error: system include map not allowed, transitively included from /home/NETID/amyv16/HW3-GraphProject/graph.h [llvmlibc-restrict-system-libc-headers,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.h:28:1: error: #includes are not sorted properly [llvm-include-order,-warnings-as-errors]
+#include <map>
+^
+note: this fix will not be applied because it overlaps with another fix
+/home/NETID/amyv16/HW3-GraphProject/graph.h:28:1: error: system include map not allowed, transitively included from /home/NETID/amyv16/HW3-GraphProject/graph.h [llvmlibc-restrict-system-libc-headers,-warnings-as-errors]
 #include <map>
 ^~~~~~~~~~~~~~
-/home/NETID/amyv16/HW3-GraphProject/graph.h:20:1: error: system include string not allowed, transitively included from /home/NETID/amyv16/HW3-GraphProject/graph.h [llvmlibc-restrict-system-libc-headers,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.h:29:1: error: system include string not allowed, transitively included from /home/NETID/amyv16/HW3-GraphProject/graph.h [llvmlibc-restrict-system-libc-headers,-warnings-as-errors]
 #include <string>
 ^~~~~~~~~~~~~~~~~
-/home/NETID/amyv16/HW3-GraphProject/graph.h:29:5: error: single-argument constructors must be marked explicit to avoid unintentional implicit conversions [google-explicit-constructor,hicpp-explicit-conversions,-warnings-as-errors]
-    Vertex(string value);
-    ^
-    explicit 
-/home/NETID/amyv16/HW3-GraphProject/graph.h:31:12: error: accessing fields in struct 'Edge' is inefficient due to poor alignment; currently aligned to 8 bytes, but recommended alignment is 16 bytes [altera-struct-pack-align,-warnings-as-errors]
-    struct Edge
-           ^
-/home/NETID/amyv16/HW3-GraphProject/graph.h:31:12: note: use "__attribute__((aligned(16)))" to align struct 'Edge' to 16 bytes
-/home/NETID/amyv16/HW3-GraphProject/graph.h:38:13: error: 'distance' should be initialized in a member initializer of the constructor [cppcoreguidelines-prefer-member-initializer,-warnings-as-errors]
-            this->distance = distance;
-            ^~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/NETID/amyv16/HW3-GraphProject/graph.h:39:13: error: 'destination' should be initialized in a member initializer of the constructor [cppcoreguidelines-prefer-member-initializer,-warnings-as-errors]
-            this->destination = destination;
-            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/NETID/amyv16/HW3-GraphProject/graph.h:90:52: error: parameter name 'to' is too short, expected at least 3 characters [readability-identifier-length,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.h:69:52: error: parameter name 'to' is too short, expected at least 3 characters [readability-identifier-length,-warnings-as-errors]
     bool connect(const string &from, const string &to, int weight = 0);
                                                    ^
-/home/NETID/amyv16/HW3-GraphProject/graph.h:94:55: error: parameter name 'to' is too short, expected at least 3 characters [readability-identifier-length,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.h:73:55: error: parameter name 'to' is too short, expected at least 3 characters [readability-identifier-length,-warnings-as-errors]
     bool disconnect(const string &from, const string &to);
                                                       ^
-/home/NETID/amyv16/HW3-GraphProject/graph.h:133:62: error: parameter name 'to' is too short, expected at least 3 characters [readability-identifier-length,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.h:114:62: error: parameter name 'to' is too short, expected at least 3 characters [readability-identifier-length,-warnings-as-errors]
                 void visit(const string &from, const string &to,
                                                              ^
-/home/NETID/amyv16/HW3-GraphProject/graph.h:141:65: error: parameter name 'to' is too short, expected at least 3 characters [readability-identifier-length,-warnings-as-errors]
+/home/NETID/amyv16/HW3-GraphProject/graph.h:123:65: error: parameter name 'to' is too short, expected at least 3 characters [readability-identifier-length,-warnings-as-errors]
                    void visit(const string &from, const string &to,
                                                                 ^
 /home/NETID/amyv16/HW3-GraphProject/graphtest.cpp:9:1: error: system include cassert not allowed [llvmlibc-restrict-system-libc-headers,-warnings-as-errors]
@@ -2580,9 +2554,42 @@ void testAll();
 /opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/ostream:735:5: note: resolves to this declaration
     endl(basic_ostream<_CharT, _Traits>& __os)
     ^
-Suppressed 137484 warnings (137480 in non-user code, 4 NOLINT).
+/home/NETID/amyv16/HW3-GraphProject/vertex.h:20:1: error: system include map not allowed, transitively included from /home/NETID/amyv16/HW3-GraphProject/vertex.h [llvmlibc-restrict-system-libc-headers,-warnings-as-errors]
+#include <map>
+^~~~~~~~~~~~~~
+/home/NETID/amyv16/HW3-GraphProject/vertex.h:21:1: error: system include string not allowed, transitively included from /home/NETID/amyv16/HW3-GraphProject/vertex.h [llvmlibc-restrict-system-libc-headers,-warnings-as-errors]
+#include <string>
+^~~~~~~~~~~~~~~~~
+/home/NETID/amyv16/HW3-GraphProject/vertex.h:30:5: error: single-argument constructors must be marked explicit to avoid unintentional implicit conversions [google-explicit-constructor,hicpp-explicit-conversions,-warnings-as-errors]
+    Vertex(string value) {
+    ^
+    explicit 
+/home/NETID/amyv16/HW3-GraphProject/vertex.h:31:9: error: 'value' should be initialized in a member initializer of the constructor [cppcoreguidelines-prefer-member-initializer,-warnings-as-errors]
+        this->value = value;
+        ^~~~~~~~~~~~~~~~~~~~
+/home/NETID/amyv16/HW3-GraphProject/vertex.h:31:21: error: 'operator=' must resolve to a function declared within the '__llvm_libc' namespace [llvmlibc-callee-namespace,-warnings-as-errors]
+        this->value = value;
+                    ^
+/opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/basic_string.h:800:7: note: resolves to this declaration
+      operator=(const basic_string& __str)
+      ^
+/home/NETID/amyv16/HW3-GraphProject/vertex.h:31:23: error: parameter 'value' is passed by value and only copied once; consider moving it to avoid unnecessary copies [performance-unnecessary-value-param,-warnings-as-errors]
+        this->value = value;
+                      ^
+note: this fix will not be applied because it overlaps with another fix
+/home/NETID/amyv16/HW3-GraphProject/vertex.h:34:12: error: accessing fields in struct 'Edge' is inefficient due to poor alignment; currently aligned to 8 bytes, but recommended alignment is 16 bytes [altera-struct-pack-align,-warnings-as-errors]
+    struct Edge
+           ^
+/home/NETID/amyv16/HW3-GraphProject/vertex.h:34:12: note: use "__attribute__((aligned(16)))" to align struct 'Edge' to 16 bytes
+/home/NETID/amyv16/HW3-GraphProject/vertex.h:41:13: error: 'distance' should be initialized in a member initializer of the constructor [cppcoreguidelines-prefer-member-initializer,-warnings-as-errors]
+            this->distance = distance;
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/NETID/amyv16/HW3-GraphProject/vertex.h:42:13: error: 'destination' should be initialized in a member initializer of the constructor [cppcoreguidelines-prefer-member-initializer,-warnings-as-errors]
+            this->destination = destination;
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Suppressed 137544 warnings (137540 in non-user code, 4 NOLINT).
 Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
-441 warnings treated as errors
+443 warnings treated as errors
 =====================================================
 4. clang-format does not find any formatting issues
 =====================================================
@@ -2591,19 +2598,12 @@ Running clang-format on ./graph.cpp
 > #include <stack>
 11d11
 < #include <stack>
-16,19c16
-< Vertex::Vertex(string value)
-< {
-<   this->value = value;
-< }
----
-> Vertex::Vertex(string value) { this->value = value; }
-23,24c20
+17,18c17
 < Graph::Graph(bool directionalEdges)
 < {
 ---
 > Graph::Graph(bool directionalEdges) {
-29,34c25,27
+23,28c22,24
 < Graph::~Graph()
 < {
 <   for (const auto &vertex : vertices)
@@ -2614,45 +2614,45 @@ Running clang-format on ./graph.cpp
 > Graph::~Graph() {
 >   for (const auto &vertex : vertices) {
 >     for (const auto &edge : vertex.second->edges) {
-42,45c35
+36,39c32
 < int Graph::verticesSize() const
 < {
 <   return vertices.size();
 < }
 ---
 > int Graph::verticesSize() const { return vertices.size(); }
-48,49c38
+42,43c35
 < int Graph::edgesSize() const
 < {
 ---
 > int Graph::edgesSize() const {
-51,52c40
+45,46c37
 <   for (const auto &vertex : vertices)
 <   {
 ---
 >   for (const auto &vertex : vertices) {
-56,57c44
+50,51c41
 <   if (!directionalEdges)
 <   {
 ---
 >   if (!directionalEdges) {
-65,66c52
+59,60c49
 < int Graph::vertexDegree(const string &label) const
 < {
 ---
 > int Graph::vertexDegree(const string &label) const {
-69,70c55
+63,64c52
 <   if (vertices.count(label))
 <   {
 ---
 >   if (vertices.count(label)) {
-72,74c57
+66,68c54
 <   }
 <   else
 <   {
 ---
 >   } else {
-82,85c65,66
+76,79c62,63
 < bool Graph::add(const string &label)
 < {
 <   if (vertices.count(label))
@@ -2660,34 +2660,34 @@ Running clang-format on ./graph.cpp
 ---
 > bool Graph::add(const string &label) {
 >   if (vertices.count(label)) {
-87,89c68
+81,83c65
 <   }
 <   else
 <   {
 ---
 >   } else {
-97,98c76
+91,92c73
 < bool Graph::contains(const string &label) const
 < {
 ---
 > bool Graph::contains(const string &label) const {
-104,105c82
+98,99c79
 < string Graph::getEdgesAsString(const string &label) const
 < {
 ---
 > string Graph::getEdgesAsString(const string &label) const {
-110,111c87
+104,105c84
 <   if (vertices.count(label))
 <   {
 ---
 >   if (vertices.count(label)) {
-113,115c89
+107,109c86
 <   }
 <   else
 <   {
 ---
 >   } else {
-120,123c94,96
+114,117c91,93
 <   for (const auto &vertex : vertexFind->edges)
 <   {
 <     edgeString = edgeString + vertex.second->destination->value +
@@ -2696,183 +2696,183 @@ Running clang-format on ./graph.cpp
 >   for (const auto &vertex : vertexFind->edges) {
 >     edgeString = edgeString + vertex.second->destination->value + "(" +
 >                  to_string(vertex.second->distance) + "),";
-127,128c100
+121,122c97
 <   if (!(edgeString.empty()))
 <   {
 ---
 >   if (!(edgeString.empty())) {
-136,137c108
+130,131c105
 < bool Graph::connect(const string &from, const string &to, int weight)
 < {
 ---
 > bool Graph::connect(const string &from, const string &to, int weight) {
-142,143c113
+136,137c110
 <   if (from == to)
 <   {
 ---
 >   if (from == to) {
-148,149c118
+142,143c115
 <   if (!(vertices.count(from)))
 <   {
 ---
 >   if (!(vertices.count(from))) {
-153,154c122
+147,148c119
 <   if (!(vertices.count(to)))
 <   {
 ---
 >   if (!(vertices.count(to))) {
-162,163c130
+156,157c127
 <   if (fromVertex->edges.count(to))
 <   {
 ---
 >   if (fromVertex->edges.count(to)) {
-171,172c138
+165,166c135
 <   if (!(directionalEdges))
 <   {
 ---
 >   if (!(directionalEdges)) {
-179,180c145
+173,174c142
 < bool Graph::disconnect(const string &from, const string &to)
 < {
 ---
 > bool Graph::disconnect(const string &from, const string &to) {
-185,186c150
+179,180c147
 <   if ((from != to) && (vertices.count(from) && vertices.count(to)))
 <   {
 ---
 >   if ((from != to) && (vertices.count(from) && vertices.count(to))) {
-189,191c153
+183,185c150
 <   }
 <   else
 <   {
 ---
 >   } else {
-196,197c158
+190,191c155
 <   if (fromVertex->edges.count(to))
 <   {
 ---
 >   if (fromVertex->edges.count(to)) {
-200,202c161
+194,196c158
 <   }
 <   else
 <   {
 ---
 >   } else {
-207,208c166
+201,202c163
 <   if (!(directionalEdges))
 <   {
 ---
 >   if (!(directionalEdges)) {
-217,218c175
+211,212c172
 < void Graph::dfs(const string &startLabel, void visit(const string &label))
 < {
 ---
 > void Graph::dfs(const string &startLabel, void visit(const string &label)) {
-224,225c181
+218,219c178
 <   if (vertices.count(startLabel))
 <   {
 ---
 >   if (vertices.count(startLabel)) {
-228,230c184
+222,224c181
 <   }
 <   else
 <   {
 ---
 >   } else {
-234,235c188
+228,229c185
 <   while (!(toVisit.empty()))
 <   {
 ---
 >   while (!(toVisit.empty())) {
-246,247c199,200
+240,241c196,197
 <     for (it = currentVertex->edges.rbegin(); it != currentVertex->edges.rend(); it++)
 <     {
 ---
 >     for (it = currentVertex->edges.rbegin(); it != currentVertex->edges.rend();
 >          it++) {
-249,250c202
+243,244c199
 <       if (!(visited.count(it->second->destination->value)))
 <       {
 ---
 >       if (!(visited.count(it->second->destination->value))) {
-259,260c211
+253,254c208
 < void Graph::bfs(const string &startLabel, void visit(const string &label))
 < {
 ---
 > void Graph::bfs(const string &startLabel, void visit(const string &label)) {
-266,267c217
+260,261c214
 <   if (vertices.count(startLabel))
 <   {
 ---
 >   if (vertices.count(startLabel)) {
-270,272c220
+264,266c217
 <   }
 <   else
 <   {
 ---
 >   } else {
-276,277c224
+270,271c221
 <   while (!(toVisit.empty()))
 <   {
 ---
 >   while (!(toVisit.empty())) {
-284,285c231
+278,279c228
 <     for (const auto &edge : currentVertex->edges)
 <     {
 ---
 >     for (const auto &edge : currentVertex->edges) {
-287,288c233
+281,282c230
 <       if (!(visited.count(edge.second->destination->value)))
 <       {
 ---
 >       if (!(visited.count(edge.second->destination->value))) {
-301,302c246
+295,296c243
 < Graph::dijkstra(const string &startLabel) const
 < {
 ---
 > Graph::dijkstra(const string &startLabel) const {
-320,321c264
+314,315c261
 <   if (vertices.count(startLabel))
 <   {
 ---
 >   if (vertices.count(startLabel)) {
-323,325c266
+317,319c263
 <   }
 <   else
 <   {
 ---
 >   } else {
-329,330c270
+323,324c267
 <   while (!(toVisit.empty()))
 <   {
 ---
 >   while (!(toVisit.empty())) {
-333c273
+327c270
 <     previousLabel = toVisit.top().second.first;  // get previous vertex of vertex
 ---
 >     previousLabel = toVisit.top().second.first; // get previous vertex of vertex
-339,340c279
+333,334c276
 <         weights.at(currentVertex->value) > path)
 <     {
 ---
 >         weights.at(currentVertex->value) > path) {
-342,343c281
+336,337c278
 <       if (!(weights.count(currentVertex->value)))
 <       {
 ---
 >       if (!(weights.count(currentVertex->value))) {
-346,348c284
+340,342c281
 <       }
 <       else if (weights.at(currentVertex->value) > path)
 <       {
 ---
 >       } else if (weights.at(currentVertex->value) > path) {
-354,355c290
+348,349c287
 <       for (const auto &edge : currentVertex->edges)
 <       {
 ---
 >       for (const auto &edge : currentVertex->edges) {
-360,363c295,298
+354,357c292,295
 <              weights.at(edge.second->destination->value)))
 <         {
 <           toVisit.push(make_pair(path + edge.second->distance,
@@ -2882,37 +2882,37 @@ Running clang-format on ./graph.cpp
 >           toVisit.push(make_pair(
 >               path + edge.second->distance,
 >               make_pair(currentVertex->value, edge.second->destination)));
-369c304,305
+363c301,302
 <   // remove start vertext looping back to itself ( [start: 0] and [start: start])
 ---
 >   // remove start vertext looping back to itself ( [start: 0] and [start:
 >   // start])
-379,380c315
+373,374c312
 <                               int weight)) const
 < {
 ---
 >                               int weight)) const {
-391,392c326
+385,386c323
 <   if (!(vertices.count(startLabel) || directionalEdges))
 <   {
 ---
 >   if (!(vertices.count(startLabel) || directionalEdges)) {
-400,401c334
+394,395c331
 <   for (const auto &edge : vertices.at(startLabel)->edges)
 <   {
 ---
 >   for (const auto &edge : vertices.at(startLabel)->edges) {
-408,409c341
+402,403c338
 <   while (!pq.empty() && visited.size() < vertices.size())
 <   {
 ---
 >   while (!pq.empty() && visited.size() < vertices.size()) {
-419,420c351
+413,414c348
 <     if (visited.count(toVertex))
 <     {
 ---
 >     if (visited.count(toVertex)) {
-434,437c365,366
+428,431c362,363
 <     for (const auto &nextEdge : vertices.at(toVertex)->edges)
 <     {
 <       if (!visited.count(nextEdge.first))
@@ -2920,17 +2920,17 @@ Running clang-format on ./graph.cpp
 ---
 >     for (const auto &nextEdge : vertices.at(toVertex)->edges) {
 >       if (!visited.count(nextEdge.first)) {
-449,450c378
+443,444c375
 <                                  int weight)) const
 < {
 ---
 >                                  int weight)) const {
-478,479c406
+472,473c403
 <   if (!(vertices.count(startLabel)) || directionalEdges)
 <   {
 ---
 >   if (!(vertices.count(startLabel)) || directionalEdges) {
-484,487c411,412
+478,481c408,409
 <   for (const auto &vertex : vertices)
 <   {
 <     for (const auto &edge : vertex.second->edges)
@@ -2938,12 +2938,12 @@ Running clang-format on ./graph.cpp
 ---
 >   for (const auto &vertex : vertices) {
 >     for (const auto &edge : vertex.second->edges) {
-494,495c419
+488,489c416
 <   while (!(edges.empty()))
 <   {
 ---
 >   while (!(edges.empty())) {
-505,508c429,430
+499,502c426,427
 <     for (int i = 0; i < minimumSpanningTree.size(); i++)
 <     {
 <       if (minimumSpanningTree[i].second.second.count(fromVertex))
@@ -2951,34 +2951,34 @@ Running clang-format on ./graph.cpp
 ---
 >     for (int i = 0; i < minimumSpanningTree.size(); i++) {
 >       if (minimumSpanningTree[i].second.second.count(fromVertex)) {
-512,513c434
+506,507c431
 <       if (minimumSpanningTree[i].second.second.count(toVertex))
 <       {
 ---
 >       if (minimumSpanningTree[i].second.second.count(toVertex)) {
-519,520c440
+513,514c437
 <     if (fromIndex == -1 && toIndex == -1)
 <     {
 ---
 >     if (fromIndex == -1 && toIndex == -1) {
-530,531c450,451
+524,525c447,448
 <       minimumSpanningTree.push_back(
 <           make_pair(distance, make_pair(otherConnectedVertices, connectedVertices)));
 ---
 >       minimumSpanningTree.push_back(make_pair(
 >           distance, make_pair(otherConnectedVertices, connectedVertices)));
-536,537c456
+530,531c453
 <     else if (fromIndex == -1 && toIndex != -1)
 <     {
 ---
 >     else if (fromIndex == -1 && toIndex != -1) {
-544,546c463
+538,540c460
 <     }
 <     else if (fromIndex != -1 && toIndex == -1)
 <     {
 ---
 >     } else if (fromIndex != -1 && toIndex == -1) {
-556,559c473,474
+550,553c470,471
 <     else if (fromIndex != -1 && toIndex != -1 &&
 <              fromIndex != toIndex &&
 <              !(minimumSpanningTree[fromIndex].second.first.count(toIndex)))
@@ -2986,7 +2986,7 @@ Running clang-format on ./graph.cpp
 ---
 >     else if (fromIndex != -1 && toIndex != -1 && fromIndex != toIndex &&
 >              !(minimumSpanningTree[fromIndex].second.first.count(toIndex))) {
-573,576c488,489
+567,570c485,486
 <   for (int i = 0; i < minimumSpanningTree.size(); i++)
 <   {
 <     if (minimumSpanningTree[i].second.second.count(startLabel))
@@ -2994,12 +2994,12 @@ Running clang-format on ./graph.cpp
 ---
 >   for (int i = 0; i < minimumSpanningTree.size(); i++) {
 >     if (minimumSpanningTree[i].second.second.count(startLabel)) {
-586,587c499
+580,581c496
 <   while (!(minimumSpanningTreeTraversal.empty()))
 <   {
 ---
 >   while (!(minimumSpanningTreeTraversal.empty())) {
-597,600c509,510
+591,594c506,507
 <          minimumSpanningTree[startVertexConnection].second.first)
 <     {
 <       if (!(visited.count(connectedVertices)))
@@ -3007,17 +3007,17 @@ Running clang-format on ./graph.cpp
 ---
 >          minimumSpanningTree[startVertexConnection].second.first) {
 >       if (!(visited.count(connectedVertices))) {
-611,612c521
+605,606c518
 < bool Graph::readFile(const string &filename)
 < {
 ---
 > bool Graph::readFile(const string &filename) {
-614,615c523
+608,609c520
 <   if (!myfile.is_open())
 <   {
 ---
 >   if (!myfile.is_open()) {
-624,625c532
+618,619c529
 <   for (int i = 0; i < edges; ++i)
 <   {
 ---
@@ -3105,26 +3105,26 @@ Running clang-format on ./main.cpp
 =====================================================
 6. No memory leaks using valgrind, look for "definitely lost" 
 =====================================================
-==1450190== Memcheck, a memory error detector
-==1450190== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==1450190== Using Valgrind-3.21.0 and LibVEX; rerun with -h for copyright info
-==1450190== Command: ./a.out
-==1450190== Parent PID: 1450074
-==1450190== 
-==1450190== 
-==1450190== HEAP SUMMARY:
-==1450190==     in use at exit: 0 bytes in 0 blocks
-==1450190==   total heap usage: 339 allocs, 339 frees, 153,563 bytes allocated
-==1450190== 
-==1450190== All heap blocks were freed -- no leaks are possible
-==1450190== 
-==1450190== For lists of detected and suppressed errors, rerun with: -s
-==1450190== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1451020== Memcheck, a memory error detector
+==1451020== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==1451020== Using Valgrind-3.21.0 and LibVEX; rerun with -h for copyright info
+==1451020== Command: ./a.out
+==1451020== Parent PID: 1450897
+==1451020== 
+==1451020== 
+==1451020== HEAP SUMMARY:
+==1451020==     in use at exit: 0 bytes in 0 blocks
+==1451020==   total heap usage: 339 allocs, 339 frees, 153,563 bytes allocated
+==1451020== 
+==1451020== All heap blocks were freed -- no leaks are possible
+==1451020== 
+==1451020== For lists of detected and suppressed errors, rerun with: -s
+==1451020== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 =====================================================
 7. Tests have full code coverage
 =====================================================
 WARNING: check-code-coverage.sh script is missing
-Mon Apr 29 21:40:05 PDT 2024
+Mon Apr 29 21:59:03 PDT 2024
 =====================================================
 To create an output.txt file with all the output from this script
 Run the below command
