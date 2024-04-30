@@ -1,4 +1,3 @@
-// Amy Vier and Elaine Hsu
 #include "graph.h"
 #include <algorithm>
 #include <fstream>

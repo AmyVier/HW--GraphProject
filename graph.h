@@ -1,8 +1,16 @@
 /**
+ *  Graph class - graph of vertices and edges, allowing user to perform
+ *  searching algorithms
+ *
+ * @author Amy Vier and Elaine Hsu
+ * @date 29 Apr 2024
+ *
  * A graph is made up of vertices and edges.
  * Vertex labels are unique.
  * A vertex can be connected to other vertices via weighted, directed edge.
  * A vertex cannot connect to itself or have multiple edges to the same vertex
+ * A edge cannot contain more than one destination
+ * A edge cannot have negative cost
  */
 
 #ifndef GRAPH_H
