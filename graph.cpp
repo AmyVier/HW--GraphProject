@@ -360,7 +360,8 @@ Graph::dijkstra(const string &startLabel) const
              weights.at(edge.second->destination->value)))
         {
           toVisit.push(make_pair(path + edge.second->distance,
-                                 make_pair(currentVertex->value, edge.second->destination)));
+                                 make_pair(currentVertex->value,
+                                           edge.second->destination)));
         }
       }
     }
@@ -466,7 +467,8 @@ int Graph::mstKruskal(const string &startLabel,
       set<int> otherConnectedVertices;
 
       // create and new cluster to vector of clusters
-      minimumSpanningTree.push_back(make_pair(distance, make_pair(otherConnectedVertices, connectedVertices)));
+      minimumSpanningTree.push_back(make_pair(
+          distance, make_pair(otherConnectedVertices, connectedVertices)));
 
       visit(fromVertex, toVertex, distance);
     }
@@ -475,7 +477,8 @@ int Graph::mstKruskal(const string &startLabel,
     {
       // insert vertex into cluster and add distance
       minimumSpanningTree[toIndex].second.second.insert(fromVertex);
-      minimumSpanningTree[toIndex].first = minimumSpanningTree[toIndex].first + distance;
+      minimumSpanningTree[toIndex].first =
+          minimumSpanningTree[toIndex].first + distance;
 
       visit(fromVertex, toVertex, distance);
     }
@@ -483,19 +486,24 @@ int Graph::mstKruskal(const string &startLabel,
     {
       // insert vertex into cluster and add distance
       minimumSpanningTree[fromIndex].second.second.insert(toVertex);
-      minimumSpanningTree[fromIndex].first = minimumSpanningTree[fromIndex].first + distance;
+      minimumSpanningTree[fromIndex].first =
+          minimumSpanningTree[fromIndex].first + distance;
 
       visit(fromVertex, toVertex, distance);
     }
-    // if both vertices are both in different clusters that are not connected to one another
-    else if (fromIndex != -1 && toIndex != -1 && fromIndex != toIndex && !(minimumSpanningTree[fromIndex].second.first.count(toIndex)))
+    // if both vertices are both in different clusters that are not
+    // connected to one another
+    else if (fromIndex != -1 && toIndex != -1 &&
+             fromIndex != toIndex &&
+             !(minimumSpanningTree[fromIndex].second.first.count(toIndex)))
     {
       // connect clusters
       minimumSpanningTree[fromIndex].second.first.insert(toIndex);
       minimumSpanningTree[toIndex].second.first.insert(fromIndex);
 
       // add cost to one of the clusters
-      minimumSpanningTree[fromIndex].first = minimumSpanningTree[fromIndex].first + distance;
+      minimumSpanningTree[fromIndex].first =
+          minimumSpanningTree[fromIndex].first + distance;
 
       visit(fromVertex, toVertex, distance);
     }
@@ -525,7 +533,8 @@ int Graph::mstKruskal(const string &startLabel,
     total = total + minimumSpanningTree[startVertexConnection].first;
 
     // iterate through all unexplored connected clusters
-    for (int connectedVertices : minimumSpanningTree[startVertexConnection].second.first)
+    for (int connectedVertices :
+         minimumSpanningTree[startVertexConnection].second.first)
     {
       if (!(visited.count(connectedVertices)))
       {
