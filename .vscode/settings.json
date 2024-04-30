@@ -25,6 +25,7 @@
     "utility": "cpp",
     "iostream": "cpp",
     "functional": "cpp",
-    "unordered_map": "cpp"
+    "unordered_map": "cpp",
+    "sstream": "cpp"
   }
 }

@@ -21,21 +21,25 @@ stringstream globalSS;
 void vertexPrinter(const string &s) { globalSS << s; }
 
 // need to reset SS before calling this
-void edgePrinter(const string &from, const string &to, int weight) {
+void edgePrinter(const string &from, const string &to, int weight)
+{
   globalSS << "[" << from << to << " " << weight << "]";
 }
 
 // convert a map to a string so we can compare it
 template <typename K, typename L>
-static string map2string(const map<K, L> &mp) {
+static string map2string(const map<K, L> &mp)
+{
   stringstream out;
-  for (auto &p : mp) {
+  for (auto &p : mp)
+  {
     out << "[" << p.first << ":" << p.second << "]";
   }
   return out.str();
 }
 
-void testGraphBasic() {
+void testGraphBasic()
+{
   Graph g;
   assert(g.add("a") && "add vertex a");
   assert(g.add("b") && "add vertex b");
@@ -67,10 +71,12 @@ void testGraphBasic() {
   assert(g.getEdgesAsString("a") == "b(10),d(40)" && "removing middle edge");
 }
 
-void testGraph0DFS() {
+void testGraph0DFS()
+{
   cout << "testGraph0DFS" << endl;
   Graph g;
-  if (!g.readFile("graph0.txt")) {
+  if (!g.readFile("graph0.txt"))
+  {
     return;
   }
   assert(g.contains("A") && "a in graph");
@@ -96,10 +102,12 @@ void testGraph0DFS() {
   assert(globalSS.str().empty() && "starting from X");
 }
 
-void testGraph0BFS() {
+void testGraph0BFS()
+{
   cout << "testGraph0BFS" << endl;
   Graph g;
-  if (!g.readFile("graph0.txt")) {
+  if (!g.readFile("graph0.txt"))
+  {
     return;
   }
 
@@ -120,10 +128,12 @@ void testGraph0BFS() {
   assert(globalSS.str().empty() && "starting from X");
 }
 
-void testGraph0Dijkstra() {
+void testGraph0Dijkstra()
+{
   cout << "testGraph0Dijkstra" << endl;
   Graph g;
-  if (!g.readFile("graph0.txt")) {
+  if (!g.readFile("graph0.txt"))
+  {
     return;
   }
   map<string, int> weights;
@@ -143,11 +153,13 @@ void testGraph0Dijkstra() {
   assert(map2string(previous).empty() && "Dijkstra(C) previous");
 }
 
-void testGraph0NotDirected() {
+void testGraph0NotDirected()
+{
   cout << "testGraph0NotDirected" << endl;
   bool isDirectional = false;
   Graph g(isDirectional);
-  if (!g.readFile("graph0.txt")) {
+  if (!g.readFile("graph0.txt"))
+  {
     return;
   }
 
@@ -202,12 +214,31 @@ void testGraph0NotDirected() {
   mstLength = g.mstPrim("X", edgePrinter);
   assert(mstLength == -1 && "mst X is -1");
   assert(globalSS.str().empty() && "mst for vertex not found");
+
+  // Krustal's Algorithm
+
+  globalSS.str("");
+  mstLength = g.mstKruskal("A", edgePrinter);
+  assert(mstLength == 4 && "mst A is 4");
+  assert(globalSS.str() == "[AB 1][BC 3]");
+
+  globalSS.str("");
+  mstLength = g.mstKruskal("C", edgePrinter);
+  assert(mstLength == 4 && "mst B is 4");
+  assert(globalSS.str() == "[AB 1][BC 3]");
+
+  globalSS.str("");
+  mstLength = g.mstKruskal("X", edgePrinter);
+  assert(mstLength == -1 && "mst X is -1");
+  assert(globalSS.str().empty() && "mst for vertex not found");
 }
 
-void testGraph1() {
+void testGraph1()
+{
   cout << "testGraph1" << endl;
   Graph g;
-  if (!g.readFile("graph1.txt")) {
+  if (!g.readFile("graph1.txt"))
+  {
     return;
   }
   globalSS.str("");
@@ -237,7 +268,8 @@ void testGraph1() {
          "Dijkstra(B) previous");
 }
 
-void testAll() {
+void testAll()
+{
   testGraphBasic();
   testGraph0DFS();
   testGraph0BFS();
