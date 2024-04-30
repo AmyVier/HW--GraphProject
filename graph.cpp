@@ -360,8 +360,7 @@ Graph::dijkstra(const string &startLabel) const
              weights.at(edge.second->destination->value)))
         {
           toVisit.push(make_pair(path + edge.second->distance,
-                                 make_pair(currentVertex->value,
-                                           edge.second->destination)));
+                                 make_pair(currentVertex->value, edge.second->destination)));
         }
       }
     }
@@ -379,8 +378,63 @@ int Graph::mstPrim(const string &startLabel,
                    void visit(const string &from, const string &to,
                               int weight)) const
 {
+  // Priority queue to store edges sorted by weight
+  priority_queue<pair<int, pair<string, string>>,
+                 vector<pair<int, pair<string, string>>>,
+                 greater<pair<int, pair<string, string>>>>
+      pq;
 
-  return -1;
+  // Set to store visited vertices
+  set<string> visited;
+
+  // Start with the given vertex
+  visited.insert(startLabel);
+
+  // Add all edges incident to the start vertex to the priority queue
+  for (const auto &edge : vertices[startLabel]->edges)
+  {
+    pq.push({edge.second->distance, {startLabel, edge.first}});
+  }
+
+  int totalWeight = 0; // Total weight of the MST
+
+  // Loop until all vertices are visited
+  while (!pq.empty() && visited.size() < vertices.size())
+  {
+    // Get the edge with the minimum weight
+    auto edge = pq.top();
+    pq.pop();
+
+    int weight = edge.first;
+    string fromVertex = edge.second.first;
+    string toVertex = edge.second.second;
+
+    // If the destination vertex has already been visited, skip this edge
+    if (visited.count(toVertex))
+    {
+      continue;
+    }
+
+    // Visit the edge
+    visit(fromVertex, toVertex, weight);
+
+    // Add the weight to the total weight of the MST
+    totalWeight += weight;
+
+    // Mark the destination vertex as visited
+    visited.insert(toVertex);
+
+    // Add all edges incident to the destination vertex to the priority queue
+    for (const auto &nextEdge : vertices[toVertex]->edges)
+    {
+      if (!visited.count(nextEdge.first))
+      {
+        pq.push({nextEdge.second->distance, {toVertex, nextEdge.first}});
+      }
+    }
+  }
+
+  return totalWeight;
 }
 
 // minimum spanning tree using Krustal's algorithm
@@ -467,8 +521,7 @@ int Graph::mstKruskal(const string &startLabel,
       set<int> otherConnectedVertices;
 
       // create and new cluster to vector of clusters
-      minimumSpanningTree.push_back(make_pair(
-          distance, make_pair(otherConnectedVertices, connectedVertices)));
+      minimumSpanningTree.push_back(make_pair(distance, make_pair(otherConnectedVertices, connectedVertices)));
 
       visit(fromVertex, toVertex, distance);
     }
@@ -477,8 +530,7 @@ int Graph::mstKruskal(const string &startLabel,
     {
       // insert vertex into cluster and add distance
       minimumSpanningTree[toIndex].second.second.insert(fromVertex);
-      minimumSpanningTree[toIndex].first =
-          minimumSpanningTree[toIndex].first + distance;
+      minimumSpanningTree[toIndex].first = minimumSpanningTree[toIndex].first + distance;
 
       visit(fromVertex, toVertex, distance);
     }
@@ -486,24 +538,19 @@ int Graph::mstKruskal(const string &startLabel,
     {
       // insert vertex into cluster and add distance
       minimumSpanningTree[fromIndex].second.second.insert(toVertex);
-      minimumSpanningTree[fromIndex].first =
-          minimumSpanningTree[fromIndex].first + distance;
+      minimumSpanningTree[fromIndex].first = minimumSpanningTree[fromIndex].first + distance;
 
       visit(fromVertex, toVertex, distance);
     }
-    // if both vertices are both in different clusters that are not
-    // connected to one another
-    else if (fromIndex != -1 && toIndex != -1 &&
-             fromIndex != toIndex &&
-             !(minimumSpanningTree[fromIndex].second.first.count(toIndex)))
+    // if both vertices are both in different clusters that are not connected to one another
+    else if (fromIndex != -1 && toIndex != -1 && fromIndex != toIndex && !(minimumSpanningTree[fromIndex].second.first.count(toIndex)))
     {
       // connect clusters
       minimumSpanningTree[fromIndex].second.first.insert(toIndex);
       minimumSpanningTree[toIndex].second.first.insert(fromIndex);
 
       // add cost to one of the clusters
-      minimumSpanningTree[fromIndex].first =
-          minimumSpanningTree[fromIndex].first + distance;
+      minimumSpanningTree[fromIndex].first = minimumSpanningTree[fromIndex].first + distance;
 
       visit(fromVertex, toVertex, distance);
     }
@@ -533,8 +580,7 @@ int Graph::mstKruskal(const string &startLabel,
     total = total + minimumSpanningTree[startVertexConnection].first;
 
     // iterate through all unexplored connected clusters
-    for (int connectedVertices :
-         minimumSpanningTree[startVertexConnection].second.first)
+    for (int connectedVertices : minimumSpanningTree[startVertexConnection].second.first)
     {
       if (!(visited.count(connectedVertices)))
       {
